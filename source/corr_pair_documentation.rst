@@ -31,7 +31,7 @@ Arguments
 
 Examples
 --------
-.. code:: ipython3
+.. code:: python
 
     import researchpy, numpy, pandas
 
@@ -42,7 +42,7 @@ Examples
                       columns= ['mental_score', 'physical_score', 'emotional_score',
                                'happiness_index'])
 
-.. code:: ipython3
+.. code:: python
 
     # Can pass the entire DataFrame or multiple Series
 
@@ -103,7 +103,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Demonstrating how the output looks if there are different Ns for groups
     df['happiness_index'][0:30] = numpy.nan

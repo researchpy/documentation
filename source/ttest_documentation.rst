@@ -154,7 +154,7 @@ is used to calculate the r coefficient for the Wilcoxon ranked-sign test.
 
 Examples
 --------
-.. code:: ipython3
+.. code:: python
 
     import numpy, pandas, researchpy
 
@@ -163,7 +163,7 @@ Examples
     df = pandas.DataFrame(numpy.random.randint(10, size= (100, 2)),
                       columns= ['healthy', 'non-healthy'])
 
-.. code:: ipython3
+.. code:: python
 
     # Independent t-test
 
@@ -191,7 +191,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Otherwise you can store them as objects
     des, res = researchpy.ttest(df['healthy'], df['non-healthy'])
@@ -251,7 +251,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     res
 
@@ -323,7 +323,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Paired samples t-test
     des, res = researchpy.ttest(df['healthy'], df['non-healthy'],
@@ -384,7 +384,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     res
 
@@ -456,7 +456,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Welch's t-test
     des, res = researchpy.ttest(df['healthy'], df['non-healthy'],
@@ -517,7 +517,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     res
 
@@ -589,7 +589,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Wilcoxon signed-rank test
     researchpy.ttest(df['healthy'], df['non-healthy'],
@@ -643,7 +643,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Exporting descriptive table (des) and result table (res) to same
     # csv file

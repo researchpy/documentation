@@ -32,7 +32,7 @@ Arguments
 
 Examples
 --------
-.. code:: ipython3
+.. code:: python
 
     import researchpy, numpy, pandas
 
@@ -42,7 +42,7 @@ Examples
     df = pandas.DataFrame(numpy.random.randint(10, size= (100, 2)),
                       columns= ['beck', 'srq'])
 
-.. code:: ipython3
+.. code:: python
 
     # Since it returns 3 DataFrames for easy exporting, if the DataFrames
     # aren't assigned to an object the outputting tuple is rather messy
@@ -61,7 +61,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # As noted above, the 3 return DataFrames are information, r values,
     # and p-values
@@ -79,7 +79,7 @@ Examples
 | Total observations used = 100                    |
 +--------------------------------------------------+
 
-.. code:: ipython3
+.. code:: python
 
   r
 
@@ -90,7 +90,7 @@ beck  1       0.0029
 srq   0.0029  1
 ====  ======  ======
 
-.. code:: ipython3
+.. code:: python
 
   p
 

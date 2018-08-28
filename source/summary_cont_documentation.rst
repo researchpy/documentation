@@ -19,7 +19,7 @@ Arguments
 Examples
 --------
 
-.. code:: ipython3
+.. code:: python
 
     import numpy, pandas, researchpy
 
@@ -39,7 +39,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Summary statistics for a Series (single variable)
     researchpy.summary_cont(df['healthy'])
@@ -77,7 +77,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Summary statistics for multiple Series
     researchpy.summary_cont(df[['healthy', 'non-healthy']])
@@ -125,7 +125,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Easy to export results, assign to Python object which will have
     # the Pandas DataFrame class
@@ -135,7 +135,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # This works with GroupBy objects as well
     researchpy.summary_cont(df['healthy'].groupby(df['tx']))
@@ -189,7 +189,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Even with a GroupBy object with a hierarchical index
     researchpy.summary_cont(df.groupby(['tx', 'dose'])['healthy', 'non-healthy'])
@@ -307,7 +307,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Above is the default output, but if the results want to be compared
     # above/below each other use .apply()

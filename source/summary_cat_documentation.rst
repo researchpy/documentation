@@ -19,7 +19,7 @@ Arguments
 
 Examples
 --------
-.. code:: ipython3
+.. code:: python
 
     import numpy, pandas, researchpy
 
@@ -28,7 +28,7 @@ Examples
     df = pandas.DataFrame(numpy.random.randint(2, size= (101, 2)),
                       columns= ['disease', 'treatment'])
 
-.. code:: ipython3
+.. code:: python
 
     # Handles a single Pandas Series
     researchpy.summary_cat(df['disease'])
@@ -68,7 +68,7 @@ Examples
     </table>
     </div>
 
-.. code:: ipython3
+.. code:: python
 
     # Can handle multiple Series, although the output is not pretty
     researchpy.summary_cat(df[['disease', 'treatment']])
@@ -119,7 +119,7 @@ Examples
     </table>
     </div>
 
-.. code:: ipython3
+.. code:: python
 
     # If missing is a string, it will show up as it's own category
     df['disease'][0] = ""
@@ -165,7 +165,7 @@ Examples
     </table>
     </div>
 
-.. code:: ipython3
+.. code:: python
 
     # However, is missing is a numpy.nan, it will be excluded from the counts
     df['disease'][0] = numpy.nan
@@ -205,7 +205,7 @@ Examples
     </table>
     </div>
 
-.. code:: ipython3
+.. code:: python
 
     # Results can easily be exported using many methods including the default
     # Pandas exporting methods
@@ -213,7 +213,7 @@ Examples
 
     results.to_csv("summary_cats.csv", index= False)
 
-.. code:: ipython3
+.. code:: python
 
     # This is the default, showing for comparison of immediately below
     researchpy.summary_cat(df['disease'], ascending= False)
@@ -250,7 +250,7 @@ Examples
     </table>
     </div>
 
-.. code:: ipython3
+.. code:: python
 
     researchpy.summary_cat(df['disease'], ascending= True)
 

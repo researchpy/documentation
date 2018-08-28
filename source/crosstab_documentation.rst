@@ -154,7 +154,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # If only two Series are passed it will output a crosstabulation with margin totals.
     # This is the same as pandas.crosstab(), except for researchpy.crosstab() returns
@@ -221,7 +221,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Demonstration of calculating cell proportions
 
@@ -288,7 +288,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Demonstration of calculating row proportions
 
@@ -355,7 +355,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Demonstration of calculating column proportions
 
@@ -422,7 +422,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # To conduct a Chi-square test of independence, pass "chi-square" in the "test =" argument.
     # This will also output an effect size; either Cramer's Phi if it a 2x2 table, or
@@ -448,7 +448,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # To clean up the output, assign each DataFrame to an object. This allows
     # for a cleaner view and each DataFrame to be exported
@@ -516,7 +516,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     res
 
@@ -553,7 +553,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # To get the expected frequencies, pass "True" in "expected_freqs="
 
@@ -608,7 +608,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Can also conduct the G-test (likelihood-ratio chi-square)
 
@@ -649,7 +649,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Can also conduct Fisher's exact test
 
@@ -710,7 +710,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     res
 
@@ -757,7 +757,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     # Lastly, the McNemar test
     # Make sure your outcomes are labelled the same in
@@ -818,7 +818,7 @@ Examples
 
 
 
-.. code:: ipython3
+.. code:: python
 
     res
 
