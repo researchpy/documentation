@@ -94,7 +94,7 @@ categories)
 
 Examples
 --------
-.. code:: ipython3
+.. code:: python
 
     import researchpy, pandas, numpy
 
