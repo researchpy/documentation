@@ -24,9 +24,9 @@ copyright = '2018, Corey Bryant'
 author = 'Corey Bryant'
 
 # The short X.Y version
-version = '0.1'
+version = '0.1.1'
 # The full version, including alpha/beta/rc tags
-release = 'alpha 0.1'
+release = '0.1.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -38,6 +38,8 @@ release = 'alpha 0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+requirements = ['require.txt']
+
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
