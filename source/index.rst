@@ -31,7 +31,6 @@ packages such as Stata, SAS, SPSS, and/or R.
    crosstab_documentation
    corr_case_documentation
    corr_pair_documentation
-   anova_documentation
 
 
 .. Indices and tables
