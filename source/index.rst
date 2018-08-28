@@ -1,0 +1,42 @@
+.. researchpy documentation master file, created by
+   sphinx-quickstart on Mon Jul 23 11:23:25 2018.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to researchpy's documentation!
+======================================
+
+researchpy produces Pandas DataFrames that contain relevant statistical testing
+information that is commonly required for academic research. The information is
+returned as Pandas DataFrames to make for quick and easy exporting of results to
+any format/method that works with the traditional Pandas DataFrame.
+
+researchpy is essentially a wrapper that combines various established packages
+such as pandas, scipy.stats, and statsmodels to get all the standard required
+information in one method. If analyses were not available in
+these packages, code was developed to fill the gap.
+
+Formula's are provided with citations if the code originated from researchpy.
+All output has been tested and verified by comparing to established software
+packages such as Stata, SAS, SPSS, and/or R.
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   summary_cont_documentation
+   summary_cat_documentation
+   ttest_documentation
+   crosstab_documentation
+   corr_case_documentation
+   corr_pair_documentation
+   anova_documentation
+
+
+.. Indices and tables
+.. ==================
+
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
