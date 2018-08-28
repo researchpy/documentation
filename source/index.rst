@@ -20,6 +20,11 @@ Formula's are provided with citations if the code originated from researchpy.
 All output has been tested and verified by comparing to established software
 packages such as Stata, SAS, SPSS, and/or R.
 
+.. note::
+
+  researchpy is only compatable with Python 3.x. Download using:
+    pip install researchpy
+
 
 .. toctree::
    :maxdepth: 2
@@ -31,7 +36,7 @@ packages such as Stata, SAS, SPSS, and/or R.
    crosstab_documentation
    corr_case_documentation
    corr_pair_documentation
-
+   install
 
 .. Indices and tables
 .. ==================
