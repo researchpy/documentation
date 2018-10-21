@@ -24,6 +24,7 @@ packages such as Stata, SAS, SPSS, and/or R.
 
   researchpy is only compatable with Python 3.x. Download using:
     pip install researchpy
+    conda install -c researchpy researchpy
 
 
 .. toctree::
