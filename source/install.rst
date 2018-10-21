@@ -9,3 +9,5 @@ package manager.
 
 Use the following command:
   pip install researchpy
+  conda install -c researchpy researchpy
+  
