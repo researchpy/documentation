@@ -1,8 +1,7 @@
 Installing researchpy
 =====================
 
-researchpy is currently only installable via pip; which is Python's standard
-package manager.
+researchpy is currently installable via pip and through conda.
 
 .. note::
   researchpy is only compatable with Python 3.x
