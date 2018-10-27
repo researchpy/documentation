@@ -7,6 +7,6 @@ researchpy is currently installable via pip and through conda.
   researchpy is only compatable with Python 3.x
 
 Use the following command:
-  pip install researchpy
-  conda install -c researchpy researchpy
+    pip install researchpy
+    conda install -c researchpy researchpy
   
