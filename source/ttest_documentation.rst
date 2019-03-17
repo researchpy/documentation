@@ -30,9 +30,10 @@ This method can perform the following tests:
 
 Arguments
 -----------------
-**ttest(group1, group2, equal_variances= True, paired= False, correction= None)**
+**ttest(group1, group2, group1_name= None, group2_name= None, equal_variances= True, paired= False, correction= None)**
 
   * **group1** and **group2**, requires the data to be a Pandas Series
+  * **group1_name** and **group2_name**, will override the series name
   * **equal_variances**, tells whether equal variances is assumed or not.
       If not, Welch's t-test is used if data is unpaired, or Wilcoxon
       rank-signed test is used if data is paired. The default is True.
