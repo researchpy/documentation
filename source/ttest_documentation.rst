@@ -183,8 +183,8 @@ Examples
      1                             Degrees of freedom =   198.0000
      2                                              t =     1.0317
      3                          Two side test p value =     0.3035
-     4  Mean of healthy > mean of non-healthy p value =     0.8483
-     5  Mean of healthy < mean of non-healthy p value =     0.1517
+     4                         Difference > 0 p value =     0.8483
+     5                         Difference < 0 p value =     0.1517
      6                                      Cohen's d =     0.1459
      7                                      Hedge's g =     0.1454
      8                                  Glass's delta =     0.1564
