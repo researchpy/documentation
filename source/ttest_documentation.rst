@@ -290,12 +290,12 @@ Examples
         </tr>
         <tr>
           <th>4</th>
-          <td>Mean of healthy &gt; mean of non-healthy p value =</td>
+          <td>Difference < 0 p value =</td>
           <td>0.8483</td>
         </tr>
         <tr>
           <th>5</th>
-          <td>Mean of healthy &lt; mean of non-healthy p value =</td>
+          <td>Difference > 0 p value =</td>
           <td>0.1517</td>
         </tr>
         <tr>
@@ -423,12 +423,12 @@ Examples
         </tr>
         <tr>
           <th>4</th>
-          <td>Mean of healthy &gt; mean of non-healthy p value =</td>
+          <td>Difference < 0 p value =</td>
           <td>0.8537</td>
         </tr>
         <tr>
           <th>5</th>
-          <td>Mean of healthy &lt; mean of non-healthy p value =</td>
+          <td>Difference > 0 p value =</td>
           <td>0.1463</td>
         </tr>
         <tr>
@@ -556,12 +556,12 @@ Examples
         </tr>
         <tr>
           <th>4</th>
-          <td>Mean of healthy &gt; mean of non-healthy p value =</td>
+          <td>Difference < 0 p value =</td>
           <td>0.8483</td>
         </tr>
         <tr>
           <th>5</th>
-          <td>Mean of healthy &lt; mean of non-healthy p value =</td>
+          <td>Difference > 0 p value =</td>
           <td>0.1517</td>
         </tr>
         <tr>
