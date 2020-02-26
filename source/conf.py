@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = 'researchpy'
-copyright = '2018, Corey Bryant'
+copyright = '2018-2020, Corey Bryant'
 author = 'Corey Bryant'
 
 # The short X.Y version
-version = '0.1.1'
+version = '0.1.9'
 # The full version, including alpha/beta/rc tags
-release = '0.1.1'
+release = '0.1.9'
 
 
 # -- General configuration ---------------------------------------------------
@@ -80,7 +80,7 @@ pygments_style = 'default'
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes. 
+# a list of builtin themes.
 # sphinx_rtd_theme
 html_theme = 'sphinx_rtd_theme'
 
