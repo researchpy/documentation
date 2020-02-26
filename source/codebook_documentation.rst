@@ -27,9 +27,11 @@ Examples
     rp.codebook(pdf)
 
 
+
 .. raw:: html
 
-<pre>Variable: age    Data Type: object
+<pre>
+Variable: age    Data Type: object
 
  Number of Obs.: 27
  Number of missing obs.: 0
@@ -100,9 +102,4 @@ Variable: y    Data Type: float64
  50th Percentile: -0.3479121493261526
  75th Percentile: 0.38253250873071776
  90th Percentile: 1.325917916396747
-
-
-
-
-
 </pre>
