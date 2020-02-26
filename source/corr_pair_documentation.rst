@@ -11,7 +11,7 @@ corresponding r value, p-value, and N for the groups being compared.
 
 Arguments
 ---------
-**corr_pair(dataframe, method= None)**
+**corr_pair(dataframe, method= "pearson")**
 
 * **dataframe** can either be a single Pandas Series or multiple Series/an
   entire DataFrame.
@@ -165,6 +165,7 @@ Examples
 
 
 
-
+References
+----------
 .. bibliography:: correlation_documentation_refs.bib
   :style: plain

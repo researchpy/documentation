@@ -657,5 +657,7 @@ Examples
 
 
 
+References
+----------
 .. bibliography:: ttest_documentation_refs.bib
   :style: plain

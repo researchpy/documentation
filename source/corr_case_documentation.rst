@@ -13,7 +13,7 @@ DataFrame 3 contains the p-values in a matrix style look.
 
 Arguments
 ---------
-**def corr_case(dataframe, method = None)**
+**def corr_case(dataframe, method = "pearson")**
 
   * **dataframe** can either be a single Pandas Series or multiple Series/an
     entire DataFrame.
@@ -104,5 +104,7 @@ srq   0.9775  0.0000
 
 
 
+References
+----------
 .. bibliography:: correlation_documentation_refs.bib
   :style: plain

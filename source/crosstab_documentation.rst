@@ -860,6 +860,7 @@ Examples
 
 
 
-
+References
+----------
 .. bibliography:: crosstab_documentation_cites.bib
   :style: plain

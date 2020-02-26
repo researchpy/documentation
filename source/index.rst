@@ -35,13 +35,13 @@ packages such as Stata, SAS, SPSS, and/or R.
    :maxdepth: 2
    :caption: Contents:
 
+   codebook_documentation
    summary_cont_documentation
    summary_cat_documentation
    ttest_documentation
    crosstab_documentation
    corr_case_documentation
    corr_pair_documentation
-   codebook_documentation
    install
 
 .. Indices and tables
