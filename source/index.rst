@@ -23,10 +23,10 @@ packages such as Stata, SAS, SPSS, and/or R.
 .. note::
 
   researchpy is only compatible with Python 3.x. Download using either:
-  
+
    * pip install researchpy
       * For standard install
-      
+
    * conda install -c researchpy researchpy
       * For installation through conda
 
@@ -41,6 +41,7 @@ packages such as Stata, SAS, SPSS, and/or R.
    crosstab_documentation
    corr_case_documentation
    corr_pair_documentation
+   codebook_documentation
    install
 
 .. Indices and tables
