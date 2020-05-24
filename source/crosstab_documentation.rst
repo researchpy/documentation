@@ -92,8 +92,13 @@ categories)
 .. math::
  \tilde{V} = \sqrt\frac{\tilde{\phi}^2}{\text{min}(\tilde{r} - 1, \tilde{c} - 1)}
 
+Where r is the number of rows and c is the number of columns, and
 
-
+.. math::
+ \phi^2 = \frac{\chi^2}{n}
+ \tilde{\phi}^2 = \text{max}(0, \frac{\chi^2}{n} - \frac{(c - 1)(r - 1)}{n - 1})
+ \tilde{c} = c - \frac{(c - 1)^2}{n - 1}
+ \tilde{r} = r - \frac{(r - 1)^2}{n - 1}
 
 
 Examples
