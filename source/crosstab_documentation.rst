@@ -15,7 +15,7 @@ the expected frequency table.
 Arguments
 ----------
 **crosstab(group1, group2, prop= None, test = False, margins= True,
-correction = None, exact = False, expected_freqs= False)**
+correction = None, cramer_correction = None, exact = False, expected_freqs= False)**
 
   * **group1** and **group2**, requires the data to be a Pandas Series
   * **prop**, can either be 'row', 'col', or 'cell'. 'row' will calculate
@@ -35,6 +35,7 @@ correction = None, exact = False, expected_freqs= False)**
     will always be returned for the percentages
   * **correction**, if True, applies the Yates' correction for continuity. Valid
     argument for *chi-square"*, *"g-test"*, and *"mcnemar"*.
+  * **cramer_correction**, if True, applies the bias correction developed by Tschuprow (1925) to Cramer's V.  
   * **exact**, is only a valid option for when the *"mcnemar"* test is selected. In that
     case, *exact = True* will then the binomal distribution will be used. If false
     (default), the :math:`\chi^2` distribution is used.
@@ -87,6 +88,9 @@ following formula is used to calculate Cramer's V :cite:`cramer2016`:
 
 Where K is the number of categories for either R or C (whichever has fewer
 categories)
+
+.. math::
+ \tilde{V} = \sqrt\frac{\tilde{\phi}^2}{\text{min}(\tilde{r} - 1, \tilde{c} - 1)}
 
 
 
