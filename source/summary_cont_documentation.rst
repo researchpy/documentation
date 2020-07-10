@@ -7,10 +7,12 @@ DataFrame, and GroupBy objects.
 
 Arguments
 ----------
-**summary_cont(group1)**
+**summary_cont(group1, conf = 0.95, decimals = 4)**
 
   * **group1**, must either be a Pandas Series or DataFrame with multiple
       columns stated
+  * **conf**, must be entered in decimal format. The default confidence interval being calculated is at 95%
+  * **decimals**, rounds the output table to the specified decimal.
 
 **returns**
 
