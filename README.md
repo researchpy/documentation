@@ -8,3 +8,7 @@ developed to fill the gap.
 
 Formula’s are provided with citations if the code originated from researchpy. All output has been tested and verified by 
 comparing to established software packages such as Stata, SAS, SPSS, and/or R.
+
+
+##### Citation Recommendation
+Bryant. C (2018). Researchpy. https://github.com/researchpy/researchpy
