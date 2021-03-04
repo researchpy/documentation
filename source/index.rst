@@ -30,9 +30,6 @@ packages such as Stata, SAS, SPSS, and/or R.
    * conda install -c researchpy researchpy
       * For installation through conda
       
-**Citation Recommendation**
-
-Bryant. C (2018). Researchpy. https://github.com/researchpy/researchpy
 
 
 .. toctree::
