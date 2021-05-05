@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = 'researchpy'
-copyright = '2018-2020, Corey Bryant'
+copyright = '2018-2021, Corey Bryant'
 author = 'Corey Bryant'
 
 # The short X.Y version
-version = '0.1.9'
+version = '0.2.4'
 # The full version, including alpha/beta/rc tags
-release = '0.1.9'
+release = '0.2.4'
 
 
 # -- General configuration ---------------------------------------------------
@@ -48,6 +48,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinxcontrib.bibtex',
 ]
+bibtex_bibfiles = ['refs.bib']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
