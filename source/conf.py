@@ -24,9 +24,9 @@ copyright = '2018-2021, Corey Bryant'
 author = 'Corey Bryant'
 
 # The short X.Y version
-version = '0.3'
+version = '0.3.1'
 # The full version, including alpha/beta/rc tags
-release = '0.3'
+release = '0.3.1'
 
 
 # -- General configuration ---------------------------------------------------
