@@ -39,7 +39,7 @@ packages such as Stata, SAS, SPSS, and/or R.
    codebook_documentation
    summary_cont_documentation
    summary_cat_documentation
-   difference_test
+   difference_test_documentation
    ttest_documentation
    crosstab_documentation
    corr_case_documentation
