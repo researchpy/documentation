@@ -24,9 +24,9 @@ copyright = '2018-2021, Corey Bryant'
 author = 'Corey Bryant'
 
 # The short X.Y version
-version = '0.2.4'
+version = '0.3'
 # The full version, including alpha/beta/rc tags
-release = '0.2.4'
+release = '0.3'
 
 
 # -- General configuration ---------------------------------------------------
@@ -96,8 +96,8 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-def setup(app):
-    app.add_stylesheet("my-styles.css")
+#def setup(app):
+#    app.add_stylesheet("my-styles.css")
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
