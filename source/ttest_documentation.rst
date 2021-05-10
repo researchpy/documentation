@@ -145,7 +145,7 @@ Rosenthal :cite:`rosenthal1991` provided the following formula to calculate
 the Pearson correlation coefficient r using the z-value and N. This formula
 is used to calculate the r coefficient for the Wilcoxon ranked-sign test.
 
-  .. math::
+.. math::
 
     r = \sqrt{\frac{Z}{\sqrt{N}}}
 
