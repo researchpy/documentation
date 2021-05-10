@@ -104,7 +104,7 @@ as follows:
 
 .. math::
 
-  d_av = \frac{M_{diff}}{\frac{SD_{1} + SD_{2}}{2}}
+  d_{av} = \frac{M_{diff}}{\frac{SD_{1} + SD_{2}}{2}}
 
 
 
@@ -134,7 +134,7 @@ Hedge's g\ :sub:`av` is calculated using the following formula :cite:`lakens2013
 
 .. math::
 
-  \text{Hedges's g}_av = \text{Cohen's d}_av \times (1 - \frac{3}{4(n_1 + n_2 - 9)})
+  \text{Hedges's g}_{av} = \text{Cohen's d}_av \times (1 - \frac{3}{4(n_1 + n_2 - 9)})
 
 
 
