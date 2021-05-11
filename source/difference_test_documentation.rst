@@ -162,12 +162,12 @@ to calculate Glass's :math:`\Delta`:
 
 Point-Biserial correlation coefficient r (between or within subjects design)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Rosenthal :cite:`rosenthal1991` provided the following formula to calculate
-the Pearson correlation coefficient r using the t-value and degrees of freedom:
+Tthe following formula to calculate
+the Point-Biserial correlation coefficient r using the t-value and degrees of freedom:
 
 .. math::
 
-  r = \sqrt{\frac{t}{t^2 + df}}
+  r = \frac{t}{\sqrt{t^2 + df}}
 
 The following formula is used to calculate the Point-Biserial
 correlation coefficient r using the W-value and N. This formula
