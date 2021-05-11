@@ -10,7 +10,6 @@ This method is similar to researchpy.ttest(), except it allows the user to use
 the formula syntax.
 
 This method can perform the following tests:
-
   * Independent sample t-test :cite:`scipy_ttest_ind`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = True)`
