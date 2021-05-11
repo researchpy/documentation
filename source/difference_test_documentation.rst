@@ -37,8 +37,7 @@ will include the effect size measures if indicated.
 
 Arguments
 -----------------
-**difference_test(formula_like, data = {}, conf_level = 0.95, equal_variances = True, independent_samples = True,
-                  wilcox_parameters = {"zero_method" : "wilcox", "correction" : False, "mode" : "auto"}, **keywords)**
+**difference_test(formula_like, data = {}, conf_level = 0.95, equal_variances = True, independent_samples = True, wilcox_parameters = {"zero_method" : "wilcox", "correction" : False, "mode" : "auto"}, **keywords)**
 
   * **formula_like**: A valid `formula < https://patsy.readthedocs.io/en/latest/formulas.html >`_ ; for example, "DV ~ IV".
   * **data**: data to perform the analysis on - contains the dependent and independent variables.
