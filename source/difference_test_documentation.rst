@@ -11,14 +11,21 @@ the formula syntax.
 
 This method can perform the following tests:
   * Independent sample t-test :cite:`scipy_ttest_ind`
-    * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = True)`
+
+      * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = True)`
+
   * Paired sample t-test :cite:`scipy_ttest_rel`
-    * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = False)`
+
+      * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = False)`
+
   * Welch's t-test :cite:`scipy_ttest_ind`
-    * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = True)`
+
+      * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = True)`
+
   * Wilcoxon ranked-sign test :cite:`scipy_wilcoxon`
-    * By default, discards all zero-differences; this is known as the 'wilcox' method.
-    * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = False)`
+  
+      * By default, discards all zero-differences; this is known as the 'wilcox' method.
+      * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = False)`
 
 2 objects will be returned for all available tests; the first object will be a
 descriptive summary table and the second will be the testing result information which
@@ -33,7 +40,7 @@ Arguments
 **difference_test(formula_like, data = {}, conf_level = 0.95, equal_variances = True, independent_samples = True,
                   wilcox_parameters = {"zero_method" : "wilcox", "correction" : False, "mode" : "auto"}, **keywords)**
 
-  * **formula_like**: A valid 'formula <https://patsy.readthedocs.io/en/latest/formulas.html>'_ ; for example, "DV ~ IV".
+  * **formula_like**: A valid `formula < https://patsy.readthedocs.io/en/latest/formulas.html >`_ ; for example, "DV ~ IV".
   * **data**: data to perform the analysis on - contains the dependent and independent variables.
   * **conf_level**: Specify the confidence interval to be calculated.
   * **equal_variances**: Boolean to indicate if equal variances are assumed.
@@ -141,18 +148,16 @@ Hedge's g\ :sub:`av` is calculated using the following formula :cite:`lakens2013
 Glass's :math:`\Delta` (between or within subjects design)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Glass's :math:`\Delta` is the mean differences between the two groups divided by
-the standard deviation of the control group. When used in a within subjects
-design, it is recommended to use the pre- standard deviation in the denominator
-:cite:`lakens2013`; the following formula is used to calculate Glass's
-:math:`\Delta`:
+the standard deviation of the first condition/group or by the second condition/group.
+When used in a within subjects design, it is recommended to use the pre- standard
+deviation in the denominator :cite:`lakens2013`; the following formulas are used
+to calculate Glass's :math:`\Delta`:
 
 .. math::
 
-  \Delta = \frac{(\bar{x}_1 - \bar{x}_2)}{SD_1}
+  \Delta_1 = \frac{(\bar{x}_1 - \bar{x}_2)}{SD_1}
 
-
-
-
+  \Delta_2 = \frac{(\bar{x}_1 - \bar{x}_2)}{SD_2}
 
 
 
