@@ -35,7 +35,7 @@ correction = None, cramer_correction = None, exact = False, expected_freqs= Fals
     will always be returned for the percentages
   * **correction**, if True, applies the Yates' correction for continuity. Valid
     argument for *chi-square"*, *"g-test"*, and *"mcnemar"*.
-  * **cramer_correction**, if True, applies the bias correction developed by Tschuprow (1925) to Cramer's V.  
+  * **cramer_correction**, if True, applies the bias correction developed by Tschuprow (1925) to Cramer's V.
   * **exact**, is only a valid option for when the *"mcnemar"* test is selected. In that
     case, *exact = True* will then the binomal distribution will be used. If false
     (default), the :math:`\chi^2` distribution is used.
@@ -870,5 +870,5 @@ Examples
 
 References
 ----------
-.. bibliography:: crosstab_documentation_cites.bib
+.. bibliography::
   :style: plain

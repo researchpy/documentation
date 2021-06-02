@@ -432,5 +432,5 @@ Now the data is in the correct structure.
 
 References
 ----------
-.. bibliography:: difference_test.bib
+.. bibliography::
   :style: plain

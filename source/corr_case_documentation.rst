@@ -106,5 +106,5 @@ srq   0.9775  0.0000
 
 References
 ----------
-.. bibliography:: correlation_documentation_refs.bib
+.. bibliography::
   :style: plain

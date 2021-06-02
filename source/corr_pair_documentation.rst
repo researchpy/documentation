@@ -167,5 +167,5 @@ Examples
 
 References
 ----------
-.. bibliography:: correlation_documentation_refs.bib
+.. bibliography::
   :style: plain
