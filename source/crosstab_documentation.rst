@@ -871,4 +871,4 @@ Examples
 References
 ----------
 .. bibliography::
-  :style: plain
+   :list: bullet

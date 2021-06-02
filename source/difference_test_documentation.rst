@@ -433,4 +433,4 @@ Now the data is in the correct structure.
 References
 ----------
 .. bibliography::
-  :style: plain
+   :list: bullet
