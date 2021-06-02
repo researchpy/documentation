@@ -39,12 +39,12 @@ Arguments
 -----------------
 **difference_test(formula_like, data = {}, conf_level = 0.95, equal_variances = True, independent_samples = True, wilcox_parameters = {"zero_method" : "wilcox", "correction" : False, "mode" : "auto"}, **keywords)**
 
-  * **formula_like**: A valid `formula < https://patsy.readthedocs.io/en/latest/formulas.html >`_ ; for example, "DV ~ IV".
+  * **formula_like**: A valid `formula <https://patsy.readthedocs.io/en/latest/formulas.html>`_ ; for example, "DV ~ IV".
   * **data**: data to perform the analysis on - contains the dependent and independent variables.
   * **conf_level**: Specify the confidence interval to be calculated.
   * **equal_variances**: Boolean to indicate if equal variances are assumed.
   * **independent_samples**: Boolean to indicate if groups and independent of each other.
-  * **wilcox_parameters**: A dictionary with optional methods for calculating the Wilcoxon signed-rank test. For more information, see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`.
+  * **wilcox_parameters**: A dictionary with optional methods for calculating the Wilcoxon signed-rank test. For more information, see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`_.
 
 **conduct(return_type = "Dataframe", effect_size = None)**
 
