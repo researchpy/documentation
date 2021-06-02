@@ -638,6 +638,6 @@ Examples
 
 References
 ----------
-.. bibliography::
+.. bibliography:: ref.bib
    :cited:
    :list: bullet
