@@ -10,19 +10,19 @@ This method is similar to researchpy.ttest(), except it allows the user to use
 the formula syntax.
 
 This method can perform the following tests:
-  * Independent sample t-test :footcite:`scipy_ttest_ind`
+  * Independent sample t-test :cite:`scipy_ttest_ind`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = True)`
 
-  * Paired sample t-test :footcite:`scipy_ttest_rel`
+  * Paired sample t-test :cite:`scipy_ttest_rel`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = False)`
 
-  * Welch's t-test :footcite:`scipy_ttest_ind`
+  * Welch's t-test :cite:`scipy_ttest_ind`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = True)`
 
-  * Wilcoxon ranked-sign test :footcite:`scipy_wilcoxon`
+  * Wilcoxon ranked-sign test :cite:`scipy_wilcoxon`
 
       * By default, discards all zero-differences; this is known as the 'wilcox' method.
       * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = False)`
@@ -91,7 +91,7 @@ Effect size measures formulas
 
 Cohen's d\ :sub:`s` (between subjects design)
 """"""""""""""""""""""""""""""""""""""""""""""
-Cohen's d\ :sub:`s` :footcite:`cohen1988` for a between groups design is calculated
+Cohen's d\ :sub:`s` :cite:`cohen1988` for a between groups design is calculated
 with the following equation:
 
 .. math::
@@ -105,7 +105,7 @@ with the following equation:
 Cohen's d\ :sub:`av` (within subject design)
 """""""""""""""""""""""""""""""""""""""""""
 Another version of Cohen's d is used in within subject designs. This is noted
-by the subscript "av". The formula for Cohen's d\ :sub:`av` :footcite:`lakens2013` is
+by the subscript "av". The formula for Cohen's d\ :sub:`av` :cite:`lakens2013` is
 as follows:
 
 .. math::
@@ -119,9 +119,9 @@ as follows:
 Hedges's g\ :sub:`s` (between subjects design)
 """"""""""""""""""""""""""""""""""""""""""""""""
 Cohen's d\ :sub:`s` gives a biased estimate of the effect size for a population
-and Hedges and Olkin :footcite:`hedges1985` provides an unbiased estimation. The
+and Hedges and Olkin :cite:`hedges1985` provides an unbiased estimation. The
 differences between Hedges's g and Cohen's d is negligible when sample sizes
-are above 20, but it is still preferable to report Hedges's g :footcite:`kline2004`.
+are above 20, but it is still preferable to report Hedges's g :cite:`kline2004`.
 Hedge's g\ :sub:`s` is calculated using the following formula:
 
 .. math::
@@ -135,8 +135,8 @@ Hedge's g\ :sub:`s` is calculated using the following formula:
 Hedges's g\ :sub:`av` (within subjects design)
 """"""""""""""""""""""""""""""""""""""""""""""""
 Cohen's d\ :sub:`av` gives a biased estimate of the effect size for a population
-and Hedges and Olkin :footcite:`hedges1985` provides a correction to be applied to provide an unbiased estimate.
-Hedge's g\ :sub:`av` is calculated using the following formula :footcite:`lakens2013` :
+and Hedges and Olkin :cite:`hedges1985` provides a correction to be applied to provide an unbiased estimate.
+Hedge's g\ :sub:`av` is calculated using the following formula :cite:`lakens2013` :
 
 .. math::
 
@@ -149,7 +149,7 @@ Glass's :math:`\Delta` (between or within subjects design)
 Glass's :math:`\Delta` is the mean differences between the two groups divided by
 the standard deviation of the first condition/group or by the second condition/group.
 When used in a within subjects design, it is recommended to use the pre- standard
-deviation in the denominator :footcite:`lakens2013`; the following formulas are used
+deviation in the denominator :cite:`lakens2013`; the following formulas are used
 to calculate Glass's :math:`\Delta`:
 
 .. math::
@@ -432,6 +432,6 @@ Now the data is in the correct structure.
 
 References
 ----------
-.. footbibliography::
+.. bibliography::
    :list: bullet
    :cited:
