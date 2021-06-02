@@ -870,6 +870,6 @@ Examples
 
 References
 ----------
-.. bibliography:: ref.bib
+.. bibliography:: refs.bib
    :list: bullet
    :cited:

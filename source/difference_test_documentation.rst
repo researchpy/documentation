@@ -432,6 +432,6 @@ Now the data is in the correct structure.
 
 References
 ----------
-.. bibliography:: ref.bib
+.. bibliography:: refs.bib
    :list: bullet
    :cited:

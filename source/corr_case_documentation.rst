@@ -106,6 +106,6 @@ srq   0.9775  0.0000
 
 References
 ----------
-.. bibliography:: ref.bib
+.. bibliography:: refs.bib
    :cited:
    :list: bullet
