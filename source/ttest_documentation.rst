@@ -69,18 +69,6 @@ with the following equation:
 
   d_s = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{(n_1 - 1)SD^2_1 + (n_2 - 1)SD^2_2}{n_1 + n_2 - 2}}}
 
-Rosenthal :cite:`rosenthal1991` provided the following formula to calculate
-Cohen's d\ :sub:`s` using the t-value and the number of participants from each
-group. This returns an identical Cohen's d\ :sub:`s` value as the original
-formula.
-
-.. math::
-
-  d_s = t\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}
-
-Computationally speaking, the formula provided by Rosenthal is faster, therefore
-it is used to calculate Cohen's d\ :sub:`s`.
-
 
 
 Hedges's g\ :sub:`s` (between subjects design)
@@ -120,15 +108,6 @@ as follows:
 .. math::
 
   d_z = \frac{M_{diff}}{\sqrt{\frac{\sum (X_{diff} - M_{diff})^2}{N - 1}}}
-
-Cohen's d\ :sub:`z` can also be calculated with the following formula using the
-t-value and number of participants provided by Rosenthal :cite:`rosenthal1991`.
-This formula is used to calculate Cohen's d\ :sub:`z` since it is computationally
-quicker.
-
-.. math::
-
-  d_z = \frac{t}{\sqrt{n}}
 
 
 
