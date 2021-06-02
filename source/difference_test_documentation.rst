@@ -10,19 +10,19 @@ This method is similar to researchpy.ttest(), except it allows the user to use
 the formula syntax.
 
 This method can perform the following tests:
-  * Independent sample t-test :cite: `scipy_ttest_ind`
+  * Independent sample t-test :cite:p:`scipy_ttest_ind`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = True)`
 
-  * Paired sample t-test :cite: `scipy_ttest_rel`
+  * Paired sample t-test :cite:p:`scipy_ttest_rel`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = False)`
 
-  * Welch's t-test :cite: `scipy_ttest_ind`
+  * Welch's t-test :cite:p:`scipy_ttest_ind`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = True)`
 
-  * Wilcoxon ranked-sign test :cite: `scipy_wilcoxon`
+  * Wilcoxon ranked-sign test :cite:p:`scipy_wilcoxon`
 
       * By default, discards all zero-differences; this is known as the 'wilcox' method.
       * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = False)`
