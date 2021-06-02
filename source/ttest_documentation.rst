@@ -660,4 +660,5 @@ Examples
 References
 ----------
 .. bibliography::
+   :cited:
    :list: bullet
