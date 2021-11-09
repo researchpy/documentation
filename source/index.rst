@@ -16,7 +16,7 @@ such as pandas, scipy.stats, numpy, and statsmodels to get all the standard requ
 information in one method. If analyses were not available in
 these packages, code was developed to fill the gap.
 
-Formula's are provided with citations if the code originated from researchpy.
+Formulas are provided with citations if the code originated from researchpy.
 All output has been tested and verified by comparing to established software
 packages such as Stata, SAS, SPSS, and/or R.
 
