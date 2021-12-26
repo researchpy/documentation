@@ -1,60 +1,74 @@
+*******
 ttest()
-=======
-Returns data tables as Pandas DataFrames with relevant information
-pertaining to the statistical test conducted. Returns 2 DataFrames so
-all information can easily be exported, except for Wilcoxon ranked-sign test-
-only 1 DataFrame is returned.
+*******
+Conducts various comparison tests between two groups and returns data tables as
+Pandas DataFrames with relevant information pertaining to the statistical test conducted.
 
-DataFrame 1 (all except Wilcoxon ranked-sign test) has summary statistic
-information including variable name, total
+This method can perform the following tests:
+  * Independent sample t-test :cite:`scipy_ttest_ind`
+
+      * `psudo-code: ttest(group1, group2, equal_variances = True, paired = False)`
+
+  * Paired sample t-test :cite:`scipy_ttest_rel`
+
+      * `psudo-code: ttest(group1, group2, equal_variances = True, paired = True)`
+
+  * Welch's t-test :cite:`scipy_ttest_ind`
+
+      * `psudo-code: ttest(group1, group2, equal_variances = False, paired = False)`
+
+  * Wilcoxon ranked-sign test :cite:`scipy_wilcoxon`
+
+      * `psudo-code: ttest(group1, group2, equal_variances = False, paired = True)`
+
+
+DataFrame 1
+^^^^^^^^^^^
+(All except Wilcoxon signed-rank test) has summary statistic information including variable name, total
 number of non-missing observations, standard deviation, standard error, and
 the 95% confidence interval. This is the same information returned from the
 *summary_cont()* method.
 
-DataFrame 2 (all except Wilcoxon ranked-sign test) has the test results for the
-statistical tests. Included in this is
-an effect size measures of r, Cohen's d, Hedge's g, and Glass's :math:`\Delta`
-for the independent sample t-test, paired sample t-test, and Welch's t-test.
+For the Wilcoxon signed-rank test, this will contain descriptive information regarding
+the signed-rank.
 
-For the Wilcoxon ranked-sign test, the returned DataFrame contains the mean
-for both comparison points, the T-value, the Z-value, the two-sided p-value, and
-effect size measure r.
 
-This method can perform the following tests:
-  * Independent sample t-test :cite:`scipy_ttest_ind`,
-  * Paired sample t-test :cite:`scipy_ttest_rel`,
-  * Welch's t-test :cite:`scipy_ttest_ind`, and
-  * Wilcoxon ranked-sign test :cite:`scipy_wilcoxon`
+DataFrame 2
+^^^^^^^^^^^
+(All except Wilcoxon signed-rank test) has the test results for the
+statistical tests. Included in this is an effect size measures of r, Cohen's d,
+Hedge's g, and Glass's :math:`\Delta` for the independent sample t-test,
+paired sample t-test, and Welch's t-test.
+
+For the Wilcoxon signed-rank test, the returned DataFrame contains the mean
+for both comparison points, the W-statistic, the Z-statistic, the two-sided p-value, and
+effect size measures of Pearson r and Point-Biserial r.
+
+.. topic:: Deprication Warning
+
+    This function is being depricated in the future during the updating and streamlining of the package.
 
 
 
 Arguments
 -----------------
-**ttest(group1, group2, group1_name= None, group2_name= None, equal_variances= True, paired= False, correction= None)**
+**ttest(group1, group2, group1_name= None, group2_name= None, equal_variances= True, paired= False, wilcox_parameters = {"zero_method" : "pratt", "correction" : False, "mode" : "auto"})**
 
-  * **group1** and **group2**, requires the data to be a Pandas Series
-  * **group1_name** and **group2_name**, will override the series name
-  * **equal_variances**, tells whether equal variances is assumed or not.
+  * **group1** and **group2** : requires the data to be a Pandas Series
+  * **group1_name** and **group2_name** : will override the series name
+  * **equal_variances** : tells whether equal variances is assumed or not.
       If not, Welch's t-test is used if data is unpaired, or Wilcoxon
       rank-signed test is used if data is paired. The default is True.
-  * **paired**, tells whether the data is paired. If data is paired and equal
+  * **paired** : tells whether the data is paired. If data is paired and equal
       variance is assumed, a paired sample t-test is conducted, otherwise a Wilcoxon
       ranked-sign test is conducted. The default is False.
+  * **wilcox_parameters** : A dictionary which contains the testing specifications for the Wilcoxon signed-rank test.
 
 **returns**
 
   * 2 Pandas DataFrames as a tuple;
       * First returned DataFrame is the summary statistics
       * Second returned DataFrame is the test results.
-      * Except for Wilcoxon ranked-sign test, only 1 DataFrame is returned
-
-.. note:: Wilcoxon ranked-sign test: a 0 difference between the 2 groups is
-  discarded from the calculation. This is the 'wilcox' method apart of
-  `scipy.stats.wilcoxon`_
-
-.. _scipy.stats.wilcoxon: https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.stats.wilcoxon.html
-
-
 
 
 
@@ -122,11 +136,22 @@ the Pearson correlation coefficient r using the t-value and degrees of freedom:
 
 Rosenthal :cite:`rosenthal1991` provided the following formula to calculate
 the Pearson correlation coefficient r using the z-value and N. This formula
-is used to calculate the r coefficient for the Wilcoxon ranked-sign test.
+is used to calculate the r coefficient for the Wilcoxon ranked-sign test. Note,
+that N is the total number of observations.
 
 .. math::
 
-    r = \sqrt{\frac{Z}{\sqrt{N}}}
+    r = \frac{Z}{\sqrt{N}}
+
+
+Rank-Biserial correlation coefficient r (between or within subjects design)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+The Rank-Biserial r is also provided for the Wilcoxon signed-rank test as is
+calculated as:
+
+.. math::
+
+  \text{Rank-Biserial r} = \frac{W}{\sum{\text{rank}}}
 
 
 

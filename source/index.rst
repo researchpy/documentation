@@ -41,6 +41,7 @@ streamlined during this process. For an example, see the new -difference_test- m
    :caption: Contents:
 
    codebook_documentation
+   summarize_documentation
    summary_cont_documentation
    summary_cat_documentation
    difference_test_documentation
@@ -48,6 +49,7 @@ streamlined during this process. For an example, see the new -difference_test- m
    crosstab_documentation
    corr_case_documentation
    corr_pair_documentation
+   anova_documentation
    install
 
 .. Indices and tables

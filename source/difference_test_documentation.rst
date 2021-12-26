@@ -159,23 +159,34 @@ to calculate Glass's :math:`\Delta`:
   \Delta_2 = \frac{(\bar{x}_1 - \bar{x}_2)}{SD_2}
 
 
-
-Point-Biserial correlation coefficient r (between or within subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Tthe following formula to calculate
-the Point-Biserial correlation coefficient r using the t-value and degrees of freedom:
+Pearson correlation coefficient r (between or within subjects design)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Rosenthal :cite:`rosenthal1991` provided the following formula to calculate
+the Pearson correlation coefficient r using the t-value and degrees of freedom:
 
 .. math::
 
   r = \frac{t}{\sqrt{t^2 + df}}
 
-The following formula is used to calculate the Point-Biserial
+Rosenthal :cite:`rosenthal1991` provided the following formula to calculate
+the Pearson correlation coefficient r using the z-value and N. This formula
+is used to calculate the r coefficient for the Wilcoxon ranked-sign test. Note,
+that N is the total number of observations.
+
+.. math::
+
+  r = \frac{Z}{\sqrt{N}}
+
+
+Rank-Biserial correlation coefficient r (between or within subjects design)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+The following formula is used to calculate the Rank-Biserial
 correlation coefficient r using the W-value and N. This formula
 is used to calculate the r coefficient for the Wilcoxon ranked-sign test.
 
-  .. math::
+.. math::
 
-    r = \sqrt{\frac{W}{\sum{\text{rank}}}}
+  \text{Rank-Biserial r} = \frac{W}{\sum{\text{rank}}}
 
 
 
