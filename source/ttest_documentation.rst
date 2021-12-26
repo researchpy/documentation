@@ -1,8 +1,11 @@
 *******
 ttest()
 *******
+
+Description
+===========
 Conducts various comparison tests between two groups and returns data tables as
-Pandas DataFrames with relevant information pertaining to the statistical test conducted.
+Pandas DataFrames or as Dictionarys with relevant information pertaining to the statistical test conducted.
 
 This method can perform the following tests:
   * Independent sample t-test :cite:`scipy_ttest_ind`
@@ -23,7 +26,7 @@ This method can perform the following tests:
 
 
 DataFrame 1
-^^^^^^^^^^^
+"""""""""""
 (All except Wilcoxon signed-rank test) has summary statistic information including variable name, total
 number of non-missing observations, standard deviation, standard error, and
 the 95% confidence interval. This is the same information returned from the
@@ -34,7 +37,7 @@ the signed-rank.
 
 
 DataFrame 2
-^^^^^^^^^^^
+"""""""""""
 (All except Wilcoxon signed-rank test) has the test results for the
 statistical tests. Included in this is an effect size measures of r, Cohen's d,
 Hedge's g, and Glass's :math:`\Delta` for the independent sample t-test,
@@ -44,7 +47,7 @@ For the Wilcoxon signed-rank test, the returned DataFrame contains the mean
 for both comparison points, the W-statistic, the Z-statistic, the two-sided p-value, and
 effect size measures of Pearson r and Point-Biserial r.
 
-.. topic:: Deprication Warning
+.. note:: Deprication Warning
 
     This function is being depricated in the future during the updating and streamlining of the package.
 
