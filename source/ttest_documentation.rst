@@ -8,19 +8,19 @@ Conducts various comparison tests between two groups and returns data tables as
 Pandas DataFrames with relevant information pertaining to the statistical test conducted.
 
 This method can perform the following tests:
-  * Independent sample t-test :cite:`scipy_ttest_ind`
+  * Independent sample t-test :cite:p:`scipy_ttest_ind`
 
       * `psudo-code: ttest(group1, group2, equal_variances = True, paired = False)`
 
-  * Paired sample t-test :cite:`scipy_ttest_rel`
+  * Paired sample t-test :cite:p:`scipy_ttest_rel`
 
       * `psudo-code: ttest(group1, group2, equal_variances = True, paired = True)`
 
-  * Welch's t-test :cite:`scipy_ttest_ind`
+  * Welch's t-test :cite:p:`scipy_ttest_ind`
 
       * `psudo-code: ttest(group1, group2, equal_variances = False, paired = False)`
 
-  * Wilcoxon ranked-sign test :cite:`scipy_wilcoxon`
+  * Wilcoxon ranked-sign test :cite:p:`scipy_wilcoxon`
 
       * `psudo-code: ttest(group1, group2, equal_variances = False, paired = True)`
 
@@ -87,7 +87,7 @@ Effect size measures formulas
 
 Cohen's d\ :sub:`s` (between subjects design)
 ---------------------------------------------
-Cohen's d\ :sub:`s` :cite:`cohen1988` for a between groups design is calculated
+Cohen's d\ :sub:`s` :cite:p:`cohen1988` for a between groups design is calculated
 with the following equation:
 
 .. math::
@@ -99,9 +99,9 @@ with the following equation:
 Hedges's g\ :sub:`s` (between subjects design)
 ----------------------------------------------
 Cohen's d\ :sub:`s` gives a biased estimate of the effect size for a population
-and Hedges and Olkin :cite:`hedges1985` provides an unbiased estimation. The
+and Hedges and Olkin :cite:p:`hedges1985` provides an unbiased estimation. The
 differences between Hedges's g and Cohen's d is negligible when sample sizes
-are above 20, but it is still preferable to report Hedges's g :cite:`kline2004`.
+are above 20, but it is still preferable to report Hedges's g :cite:p:`kline2004`.
 Hedge's g\ :sub:`s` is calculated using the following formula:
 
 .. math::
@@ -115,7 +115,7 @@ Glass's :math:`\Delta` (between or within subjects design)
 Glass's :math:`\Delta` is the mean differences between the two groups divided by
 the standard deviation of the control group. When used in a within subjects
 design, it is recommended to use the pre- standard deviation in the denominator
-:cite:`lakens2013`; the following formula is used to calculate Glass's
+:cite:p:`lakens2013`; the following formula is used to calculate Glass's
 :math:`\Delta`:
 
 .. math::
@@ -127,7 +127,7 @@ design, it is recommended to use the pre- standard deviation in the denominator
 Cohen's d\ :sub:`z` (within subject design)
 -------------------------------------------
 Another version of Cohen's d is used in within subject designs. This is noted
-by the subscript "z". The formula for Cohen's d\ :sub:`z` :cite:`cohen1988` is
+by the subscript "z". The formula for Cohen's d\ :sub:`z` :cite:p:`cohen1988` is
 as follows:
 
 .. math::
@@ -138,14 +138,14 @@ as follows:
 
 Pearson correlation coefficient r (between or within subjects design)
 ---------------------------------------------------------------------
-Rosenthal :cite:`rosenthal1991` provided the following formula to calculate
+Rosenthal :cite:p:`rosenthal1991` provided the following formula to calculate
 the Pearson correlation coefficient r using the t-value and degrees of freedom:
 
 .. math::
 
   r = \sqrt{\frac{t^2}{t^2 + df}}
 
-Rosenthal :cite:`rosenthal1991` provided the following formula to calculate
+Rosenthal :cite:p:`rosenthal1991` provided the following formula to calculate
 the Pearson correlation coefficient r using the z-value and N. This formula
 is used to calculate the r coefficient for the Wilcoxon ranked-sign test. Note,
 that N is the total number of observations.
