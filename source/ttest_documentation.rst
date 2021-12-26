@@ -5,7 +5,7 @@ ttest()
 Description
 ===========
 Conducts various comparison tests between two groups and returns data tables as
-Pandas DataFrames or as Dictionarys with relevant information pertaining to the statistical test conducted.
+Pandas DataFrames with relevant information pertaining to the statistical test conducted.
 
 This method can perform the following tests:
   * Independent sample t-test :cite:`scipy_ttest_ind`
@@ -25,36 +25,20 @@ This method can perform the following tests:
       * `psudo-code: ttest(group1, group2, equal_variances = False, paired = True)`
 
 
-DataFrame 1
-"""""""""""
-(All except Wilcoxon signed-rank test) has summary statistic information including variable name, total
-number of non-missing observations, standard deviation, standard error, and
-the 95% confidence interval. This is the same information returned from the
-*summary_cont()* method.
 
-For the Wilcoxon signed-rank test, this will contain descriptive information regarding
-the signed-rank.
+.. note:: **Deprecation Warning**
 
-
-DataFrame 2
-"""""""""""
-(All except Wilcoxon signed-rank test) has the test results for the
-statistical tests. Included in this is an effect size measures of r, Cohen's d,
-Hedge's g, and Glass's :math:`\Delta` for the independent sample t-test,
-paired sample t-test, and Welch's t-test.
-
-For the Wilcoxon signed-rank test, the returned DataFrame contains the mean
-for both comparison points, the W-statistic, the Z-statistic, the two-sided p-value, and
-effect size measures of Pearson r and Point-Biserial r.
-
-.. note:: Deprication Warning
-
-    This function is being depricated in the future during the updating and streamlining of the package.
+    This function is being deprecated in the future during the updating and streamlining of the package.
 
 
 
-Arguments
------------------
+
+
+Parameters
+==========
+
+Input
+-----
 **ttest(group1, group2, group1_name= None, group2_name= None, equal_variances= True, paired= False, wilcox_parameters = {"zero_method" : "pratt", "correction" : False, "mode" : "auto"})**
 
   * **group1** and **group2** : requires the data to be a Pandas Series
@@ -67,18 +51,42 @@ Arguments
       ranked-sign test is conducted. The default is False.
   * **wilcox_parameters** : A dictionary which contains the testing specifications for the Wilcoxon signed-rank test.
 
-**returns**
 
-  * 2 Pandas DataFrames as a tuple;
-      * First returned DataFrame is the summary statistics
-      * Second returned DataFrame is the test results.
+Returns
+-------
+Will return 2 Pandas DataFrames (default) as a tuple. The first returned DataFrame
+will contain the summary statistics while the second returned DataFrame contains the test results.
+
+
+DataFrame 1
+^^^^^^^^^^^
+(All except Wilcoxon signed-rank test) has summary statistic information including variable name, total
+number of non-missing observations, standard deviation, standard error, and
+the 95% confidence interval. This is the same information returned from the
+*summary_cont()* method.
+
+For the Wilcoxon signed-rank test, this will contain descriptive information regarding
+the signed-rank.
+
+
+DataFrame 2
+^^^^^^^^^^^
+(All except Wilcoxon signed-rank test) has the test results for the
+statistical tests. Included in this is an effect size measures of r, Cohen's d,
+Hedge's g, and Glass's :math:`\Delta` for the independent sample t-test,
+paired sample t-test, and Welch's t-test.
+
+For the Wilcoxon signed-rank test, the returned DataFrame contains the mean
+for both comparison points, the W-statistic, the Z-statistic, the two-sided p-value, and
+effect size measures of Pearson r and Rank-Biserial r.
 
 
 
 Effect size measures formulas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=============================
+
 Cohen's d\ :sub:`s` (between subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""
+---------------------------------------------
 Cohen's d\ :sub:`s` :cite:`cohen1988` for a between groups design is calculated
 with the following equation:
 
@@ -89,7 +97,7 @@ with the following equation:
 
 
 Hedges's g\ :sub:`s` (between subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""""
+----------------------------------------------
 Cohen's d\ :sub:`s` gives a biased estimate of the effect size for a population
 and Hedges and Olkin :cite:`hedges1985` provides an unbiased estimation. The
 differences between Hedges's g and Cohen's d is negligible when sample sizes
@@ -103,7 +111,7 @@ Hedge's g\ :sub:`s` is calculated using the following formula:
 
 
 Glass's :math:`\Delta` (between or within subjects design)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+----------------------------------------------------------
 Glass's :math:`\Delta` is the mean differences between the two groups divided by
 the standard deviation of the control group. When used in a within subjects
 design, it is recommended to use the pre- standard deviation in the denominator
@@ -117,7 +125,7 @@ design, it is recommended to use the pre- standard deviation in the denominator
 
 
 Cohen's d\ :sub:`z` (within subject design)
-"""""""""""""""""""""""""""""""""""""""""""
+-------------------------------------------
 Another version of Cohen's d is used in within subject designs. This is noted
 by the subscript "z". The formula for Cohen's d\ :sub:`z` :cite:`cohen1988` is
 as follows:
@@ -129,7 +137,7 @@ as follows:
 
 
 Pearson correlation coefficient r (between or within subjects design)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+---------------------------------------------------------------------
 Rosenthal :cite:`rosenthal1991` provided the following formula to calculate
 the Pearson correlation coefficient r using the t-value and degrees of freedom:
 
@@ -148,7 +156,7 @@ that N is the total number of observations.
 
 
 Rank-Biserial correlation coefficient r (between or within subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+---------------------------------------------------------------------------
 The Rank-Biserial r is also provided for the Wilcoxon signed-rank test as is
 calculated as:
 
@@ -161,7 +169,7 @@ calculated as:
 
 
 Examples
---------
+========
 .. code:: python
 
     import numpy, pandas, researchpy
@@ -171,6 +179,8 @@ Examples
     df = pandas.DataFrame(numpy.random.randint(10, size= (100, 2)),
                       columns= ['healthy', 'non-healthy'])
 
+Independent t-test
+------------------
 .. code:: python
 
     # Independent t-test
@@ -330,7 +340,8 @@ Examples
     </div>
 
 
-
+Paired Sample t-test
+--------------------
 .. code:: python
 
     # Paired samples t-test
@@ -463,7 +474,8 @@ Examples
     </div>
 
 
-
+Welch's t-test
+--------------
 .. code:: python
 
     # Welch's t-test
@@ -596,7 +608,8 @@ Examples
     </div>
 
 
-
+Wilcoxon Signed-Rank Test
+-------------------------
 .. code:: python
 
     # Wilcoxon signed-rank test
