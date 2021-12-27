@@ -30,11 +30,11 @@ anova methods
 ^^^^^^^^^^^^^
 
   * **results(return_type = "Dataframe", decimals = 4, pretty_format = True)**
-    * **return_type** : The type of data structure the results should be returned as. Supported options
-    are 'Dataframe' which will return a Pandas DataFrame or 'Dictionary' which will return a dictionary.
-    * **decimals** : The number of decimal places the data should be rounded too.
-    * **pretty_format ** : If pretty formatting should be applied. This adds extra empty spaces in the returned data
-    structure for visualization of the results.
+      * **return_type** : The type of data structure the results should be returned as. Supported options
+      are 'Dataframe' which will return a Pandas DataFrame or 'Dictionary' which will return a dictionary.
+      * **decimals** : The number of decimal places the data should be rounded too.
+      * **pretty_format ** : If pretty formatting should be applied. This adds extra empty spaces in the returned data
+      structure for visualization of the results.
 
 
 
@@ -47,11 +47,11 @@ called 'systolic'.
 .. code:: python
 
   import researchpy as rp
-   # Used to load example data #
-   import statsmodels.datasets
+  # Used to load example data #
+  import statsmodels.datasets
 
 
-   systolic = statsmodels.datasets.webuse('systolic')
+  systolic = statsmodels.datasets.webuse('systolic')
 
 
 Now let's get some quick information regarding the data set.
@@ -85,24 +85,25 @@ treated as categorical while the dependent variable will be treated as continuou
 
   rp.summarize(systolic["systolic"])
 
-.. parsed-literal::
+.. raw:: html
 
-      Name   N     Mean Median Variance       SD      SE  95% Conf. Interval
-   0  systolic  58  18.8793     21  163.862  12.8009  1.6808  [15.5135, 22.2451]
+  <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>Name</th>      <th>N</th>      <th>Mean</th>      <th>Median</th>      <th>Variance</th>      <th>SD</th>      <th>SE</th>      <th>95% Conf. Interval</th>    </tr>  </thead>
+  <tbody>    <tr>      <th>0</th>      <td>systolic</td>      <td>58</td>      <td>18.8793</td>      <td>21</td>      <td>163.862</td>      <td>12.8009</td>      <td>1.6808</td>      <td>[15.5135, 22.2451]</td>    </tr>  </tbody>
+  </table>
+
+
+
+
+
 
 
 .. code:: python
 
   rp.crosstab(systolic["disease"], systolic["drug"])
 
-.. parsed-literal::
+.. raw:: html
 
-  drug       1   2   3   4 All
-   disease
-   1          6   5   3   5  19
-   2          4   4   5   6  19
-   3          5   6   4   5  20
-   All       15  15  12  16  58
+  <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>Variable</th>      <th>Outcome</th>      <th>Count</th>      <th>Percent</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>drug</td>      <td>4</td>      <td>16</td>      <td>27.59</td>    </tr>    <tr>      <th>1</th>      <td></td>      <td>2</td>      <td>15</td>      <td>25.86</td>    </tr>    <tr>      <th>2</th>      <td></td>      <td>1</td>      <td>15</td>      <td>25.86</td>    </tr>    <tr>      <th>3</th>      <td></td>      <td>3</td>      <td>12</td>      <td>20.69</td>    </tr>    <tr>      <th>4</th>      <td>disease</td>      <td>3</td>      <td>20</td>      <td>34.48</td>    </tr>    <tr>      <th>5</th>      <td></td>      <td>2</td>      <td>19</td>      <td>32.76</td>    </tr>    <tr>      <th>6</th>      <td></td>      <td>1</td>      <td>19</td>      <td>32.76</td>    </tr>  </tbody></table>
 
 
 Now to conduct the ANOVA; by default Type 3 sum of squares are used.
@@ -113,14 +114,6 @@ Now to conduct the ANOVA; by default Type 3 sum of squares are used.
   mod = anova("systolic ~ C(drug) + C(disease) + C(drug):C(disease)", data = systolic, sum_of_squares = 3)
    mod.results()
 
-.. parsed-literal::
+.. raw:: html
 
-  Source Sum of Squares Degrees of Freedom Mean Squares F value p-value
- 0         Model        4259.34                 11      387.213  3.5057  0.0013
- 1
- 2          drug        2997.47                  3      999.157   9.046  0.0001
- 3       disease        415.873                  2      207.936  1.8826  0.1637
- 4  drug:disease        707.266                  6      117.878  1.0672  0.3958
- 5
- 6      Residual        5080.82                 46      110.453
- 7         Total        9340.16                 57      163.862
+  <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>Source</th>      <th>Sum of Squares</th>      <th>Degrees of Freedom</th>      <th>Mean Squares</th>      <th>F value</th>      <th>p-value</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>Model</td>      <td>4259.34</td>      <td>11</td>      <td>387.213</td>      <td>3.5057</td>      <td>0.0013</td>    </tr>    <tr>      <th>1</th>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <th>2</th>      <td>drug</td>      <td>2997.47</td>      <td>3</td>      <td>999.157</td>      <td>9.046</td>      <td>0.0001</td>    </tr>    <tr>      <th>3</th>      <td>disease</td>      <td>415.873</td>      <td>2</td>      <td>207.936</td>      <td>1.8826</td>      <td>0.1637</td>    </tr>    <tr>      <th>4</th>      <td>drug:disease</td>      <td>707.266</td>      <td>6</td>      <td>117.878</td>      <td>1.0672</td>      <td>0.3958</td>    </tr>    <tr>      <th>5</th>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <th>6</th>      <td>Residual</td>      <td>5080.82</td>      <td>46</td>      <td>110.453</td>      <td></td>      <td></td>    </tr>    <tr>      <th>7</th>      <td>Total</td>      <td>9340.16</td>      <td>57</td>      <td>163.862</td>      <td></td>      <td></td>    </tr>  </tbody></table>
