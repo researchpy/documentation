@@ -54,7 +54,7 @@ called 'systolic'.
    systolic = statsmodels.datasets.webuse('systolic')
 
 
-Now let's take a quick view of the data set.
+Now let's get some quick information regarding the data set.
 
 .. code:: python
 
@@ -63,34 +63,42 @@ Now let's take a quick view of the data set.
 
 .. parsed-literal::
 
-         drug  disease  systolic
-     0     1        1        42
-     1     1        1        44
-     2     1        1        36
-     3     1        1        13
-     4     1        1        19
+    <class 'pandas.core.frame.DataFrame'>
+     Int64Index: 58 entries, 0 to 57
+    Data columns (total 3 columns):
+    #   Column    Non-Null Count  Dtype
+    ---  ------    --------------  -----
+    0   drug      58 non-null     int16
+    1   disease   58 non-null     int16
+    2   systolic  58 non-null     int16
 
 
-
-Now to take a look at the descriptives of the univariate data.
-
-.. code:: python
-
-  rp.summarize(systolic["disease"])
-
-
-.. .. parsed-literal::
-
-  Name   N    Mean Median Variance     SD      SE 95% Conf. Interval
-  0  disease  58  2.0172      2   0.6839  0.827  0.1086   [1.7998, 2.2347]
-
-
-
-.. code:: python
-
-  rp.summary_cat(systolic["disease"])
-
+Now to take a look at the descriptive statistics of the univariate data.
 
 .. code:: python
 
   rp.summarize(systolic["systolic"])
+
+
+.. parsed-literal::
+
+  Name   N     Mean Median Variance       SD      SE  95% Conf. Interval
+   0  systolic  58  18.8793     21  163.862  12.8009  1.6808  [15.5135, 22.2451]
+
+
+
+.. code:: python
+
+  rp.summary_cat(systolic[["drug", "disease"]])
+
+
+.. parsed-literal::
+
+  Variable  Outcome  Count  Percent
+   0     drug        4     16    27.59
+   1                 2     15    25.86
+   2                 1     15    25.86
+   3                 3     12    20.69
+   4  disease        3     20    34.48
+   5                 2     19    32.76
+   6                 1     19    32.76
