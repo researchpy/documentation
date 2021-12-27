@@ -73,32 +73,54 @@ Now let's get some quick information regarding the data set.
     2   systolic  58 non-null     int16
 
 
-Now to take a look at the descriptive statistics of the univariate data.
+
+Now to take a look at the descriptive statistics of the univariate data. The output
+indicates that all the columns are integers which is a discrete data type; however,
+when we conduct the ANOVA the independent variables, drug and disease, will be
+treated as categorical while the dependent variable will be treated as continuous.
+
+
 
 .. code:: python
 
   rp.summarize(systolic["systolic"])
 
-
 .. parsed-literal::
 
-  Name   N     Mean Median Variance       SD      SE  95% Conf. Interval
+      Name   N     Mean Median Variance       SD      SE  95% Conf. Interval
    0  systolic  58  18.8793     21  163.862  12.8009  1.6808  [15.5135, 22.2451]
-
 
 
 .. code:: python
 
-  rp.summary_cat(systolic[["drug", "disease"]])
-
+  rp.crosstab(systolic["disease"], systolic["drug"])
 
 .. parsed-literal::
 
-  Variable  Outcome  Count  Percent
-   0     drug        4     16    27.59
-   1                 2     15    25.86
-   2                 1     15    25.86
-   3                 3     12    20.69
-   4  disease        3     20    34.48
-   5                 2     19    32.76
-   6                 1     19    32.76
+  drug       1   2   3   4 All
+   disease
+   1          6   5   3   5  19
+   2          4   4   5   6  19
+   3          5   6   4   5  20
+   All       15  15  12  16  58
+
+
+Now to conduct the ANOVA; by default Type 3 sum of squares are used.
+
+
+.. code:: python
+
+  mod = anova("systolic ~ C(drug) + C(disease) + C(drug):C(disease)", data = systolic, sum_of_squares = 3)
+   mod.results()
+
+.. parsed-literal::
+
+  Source Sum of Squares Degrees of Freedom Mean Squares F value p-value
+ 0         Model        4259.34                 11      387.213  3.5057  0.0013
+ 1
+ 2          drug        2997.47                  3      999.157   9.046  0.0001
+ 3       disease        415.873                  2      207.936  1.8826  0.1637
+ 4  drug:disease        707.266                  6      117.878  1.0672  0.3958
+ 5
+ 6      Residual        5080.82                 46      110.453
+ 7         Total        9340.16                 57      163.862
