@@ -39,7 +39,7 @@ Parameters
 
 Input
 -----
-**ttest(group1, group2, group1_name= None, group2_name= None, equal_variances= True, paired= False, wilcox_parameters = {"zero_method" : "pratt", "correction" : False, "mode" : "auto"})**
+**ttest(group1, group2, group1_name= None, group2_name= None, equal_variances= True, paired= False, wilcox_parameters = {"zero_method" : "pratt", "correction" : False, "mode" : "auto"}, welch_dof = "satterthwaite")**
 
   * **group1** and **group2** : requires the data to be a Pandas Series
   * **group1_name** and **group2_name** : will override the series name
@@ -50,6 +50,7 @@ Input
       variance is assumed, a paired sample t-test is conducted, otherwise a Wilcoxon
       ranked-sign test is conducted. The default is False.
   * **wilcox_parameters** : A dictionary which contains the testing specifications for the Wilcoxon signed-rank test.
+  * **welch_dof** : A string to indicate which calculation is to be used when calculating the degrees of freedom. Can either be "welch" or "satterthwaite" (default).
 
 
 Returns
@@ -79,6 +80,28 @@ paired sample t-test, and Welch's t-test.
 For the Wilcoxon signed-rank test, the returned DataFrame contains the mean
 for both comparison points, the W-statistic, the Z-statistic, the two-sided p-value, and
 effect size measures of Pearson r and Rank-Biserial r.
+
+
+
+Welch Degrees of freedom
+========================
+There are two degrees of freedom options available when calculating the Welch's t-test. The default is to use
+the Satterthwaite (1946) calculation with the option to use the Welch (1947) calculation.
+
+Satterthwaite (1946)
+^^^^^^^^^^^^^^^^^^^^
+
+.. math::
+
+  \frac{(\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y})^2}{\frac{(\frac{s^2_x}{n_x})^2}{n_x-1} + \frac{(\frac{s^2_y}{n_y})^2}{n_y-1} }
+
+
+Welch (1947)
+^^^^^^^^^^^^
+
+.. math::
+
+  -2 + \frac{(\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y})^2}{\frac{(\frac{s^2_x}{n_x})^2}{n_x+1} + \frac{(\frac{s^2_y}{n_y})^2}{n_y+1} }
 
 
 

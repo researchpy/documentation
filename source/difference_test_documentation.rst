@@ -10,19 +10,19 @@ This method is similar to researchpy.ttest(), except it allows the user to use
 the formula syntax.
 
 This method can perform the following tests:
-  * Independent sample t-test :cite:`scipy_ttest_ind`
+  * Independent sample t-test :cite:`2018:scipy_ttest_ind`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = True)`
 
-  * Paired sample t-test :cite:`scipy_ttest_rel`
+  * Paired sample t-test :cite:`2018:scipy_ttest_rel`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = False)`
 
-  * Welch's t-test :cite:`scipy_ttest_ind`
+  * Welch's t-test :cite:`2018:scipy_ttest_ind`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = True)`
 
-  * Wilcoxon ranked-sign test :cite:`scipy_wilcoxon`
+  * Wilcoxon ranked-sign test :cite:`2018:scipy_wilcoxon`
 
       * By default, discards all zero-differences; this is known as the 'wilcox' method.
       * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = False)`
@@ -37,7 +37,7 @@ will include the effect size measures if indicated.
 
 Arguments
 -----------------
-**difference_test(formula_like, data = {}, conf_level = 0.95, equal_variances = True, independent_samples = True, wilcox_parameters = {"zero_method" : "wilcox", "correction" : False, "mode" : "auto"}, **keywords)**
+**difference_test(formula_like, data = {}, conf_level = 0.95, equal_variances = True, independent_samples = True, wilcox_parameters = {"zero_method" : "wilcox", "correction" : False, "mode" : "auto"}, welch_dof = "satterthwaite", **keywords)**
 
   * **formula_like**: A valid `formula <https://patsy.readthedocs.io/en/latest/formulas.html>`_ ; for example, "DV ~ IV".
   * **data**: data to perform the analysis on - contains the dependent and independent variables.
@@ -45,6 +45,7 @@ Arguments
   * **equal_variances**: Boolean to indicate if equal variances are assumed.
   * **independent_samples**: Boolean to indicate if groups and independent of each other.
   * **wilcox_parameters**: A dictionary with optional methods for calculating the Wilcoxon signed-rank test. For more information, see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`_.
+  * **welch_dof** : A string which indicates how to calculate the degrees of freedom for the Welch's t-test; options are "satterthwaite" (default) and "welch".
 
 **conduct(return_type = "Dataframe", effect_size = None)**
 
@@ -84,6 +85,25 @@ Arguments
 
 
 
+Welch Degrees of freedom
+^^^^^^^^^^^^^^^^^^^^^^^^
+There are two degrees of freedom options available when calculating the Welch's t-test. The default is to use
+the Satterthwaite :cite:`1946:Satterthwaite` calculation with the option to use the Welch :cite:`1947:Welch` calculation.
+
+Satterthwaite (1946)
+""""""""""""""""""""
+
+.. math::
+
+  \frac{(\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y})^2}{\frac{(\frac{s^2_x}{n_x})^2}{n_x-1} + \frac{(\frac{s^2_y}{n_y})^2}{n_y-1} }
+
+
+Welch (1947)
+""""""""""""
+
+.. math::
+
+  -2 + \frac{(\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y})^2}{\frac{(\frac{s^2_x}{n_x})^2}{n_x+1} + \frac{(\frac{s^2_y}{n_y})^2}{n_y+1
 
 
 Effect size measures formulas
@@ -445,4 +465,3 @@ References
 ----------
 .. bibliography:: refs.bib
    :list: bullet
-   :cited:

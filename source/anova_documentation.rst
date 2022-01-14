@@ -30,6 +30,7 @@ anova methods
 ^^^^^^^^^^^^^
 
   * **results(return_type = "Dataframe", decimals = 4, pretty_format = True)**
+
       * **return_type** : The type of data structure the results should be returned as. Supported options
       are 'Dataframe' which will return a Pandas DataFrame or 'Dictionary' which will return a dictionary.
       * **decimals** : The number of decimal places the data should be rounded too.
