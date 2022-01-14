@@ -88,7 +88,7 @@ Arguments
 Welch Degrees of freedom
 ^^^^^^^^^^^^^^^^^^^^^^^^
 There are two degrees of freedom options available when calculating the Welch's t-test. The default is to use
-the Satterthwaite :cite:`1946:Satterthwaite` calculation with the option to use the Welch :cite:`1947:Welch` calculation.
+the Satterthwaite :cite:`Satterthwaite1946` calculation with the option to use the Welch :cite:`Welch1947` calculation.
 
 Satterthwaite (1946)
 """"""""""""""""""""
