@@ -51,6 +51,7 @@ streamlined during this process. For an example, see the new -difference_test- m
    corr_pair_documentation
    anova_documentation
    install
+   thanks
 
 .. Indices and tables
 .. ==================
