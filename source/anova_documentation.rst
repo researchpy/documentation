@@ -39,6 +39,49 @@ anova methods
 
 
 
+Effect size measures formulas
+=============================
+By default, this method will return the measures of :math:`R^2`, :math:`\text{Adj. }R^2`, :math:`\eta^2`, and :math:`\omega^2`;
+note that for the factor terms the reported :math:`\eta^2` and :math:`\omega^2` will be partial, i.e. :math:`\eta^2_p` and :math:`\omega^2_p` respectively.
+Additionally, :math:`R^2` and :math:`\eta^2` are the same but have different names due to coming from different frameworks
+which uses different terminology. Formulas for how to calculate these effect sizes
+comes from :cite:`grissomkim2012`.
+
+Eta-squared (:math:`\eta^2`) and :math:`R^2`
+""""""""""""""""""""""""""""""""""""""""""""
+.. math::
+
+  \eta^2 = \frac{\text{SS}_{model}}{\text{SS}_{total}}
+
+Adjusted :math:`R^2`
+""""""""""""""""""""
+.. math::
+
+  \text{Adj. }R^2 = 1 - \frac{\text{df}_{total}}{\text{df}_{error}} * \frac{\text{SS}_{error}}{\text{SS}_{total}}
+
+Partial Eta-squared (:math:`\eta^2_p`)
+""""""""""""""""""""""""""""""""""""""
+.. math::
+
+  \eta^2_p = \frac{\text{SS}_{effect}}{\text{SS}_{effect} + \text{SS}_{error}}
+
+
+Omega-squared (:math:`\omega^2`)
+"""""""""""""""""""""""""""""""""
+.. math::
+
+  \omega^2 = \frac{\text{SS}_{effect} - (\text{df}_{effect} * \text{MS}_{error})}{\text{SS}_{total} + \text{MS}_{error}}
+
+Partial Omega-squared (:math:`\omega^2_p`)
+"""""""""""""""""""""""""""""""""""""""""""
+.. math::
+
+  \omega^2_p = \frac{\text{SS}_{effect} - (\text{df}_{effect} * \text{MS}_{error})}{\text{SS}_{effect} + (\text{N} - \text{df}_{effect}) * \text{MS}_{error}}
+
+Where N is the total number of observations included in the model.
+
+
+
 Examples
 ========
 First to load required libraries for this example. Below, an example data set will be loaded
