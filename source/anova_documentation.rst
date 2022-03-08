@@ -124,9 +124,8 @@ Now let's get some quick information regarding the data set.
 
 
 Now to take a look at the descriptive statistics of the univariate data. The output
-indicates that all the columns are integers which is a discrete data type; however,
-when we conduct the ANOVA the independent variables, drug and disease, will be
-treated as categorical while the dependent variable will be treated as continuous.
+indicates that there are no missing observations and that each variable is stored
+as an integer.
 
 
 
@@ -155,14 +154,38 @@ treated as categorical while the dependent variable will be treated as continuou
   <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>Variable</th>      <th>Outcome</th>      <th>Count</th>      <th>Percent</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>drug</td>      <td>4</td>      <td>16</td>      <td>27.59</td>    </tr>    <tr>      <th>1</th>      <td></td>      <td>2</td>      <td>15</td>      <td>25.86</td>    </tr>    <tr>      <th>2</th>      <td></td>      <td>1</td>      <td>15</td>      <td>25.86</td>    </tr>    <tr>      <th>3</th>      <td></td>      <td>3</td>      <td>12</td>      <td>20.69</td>    </tr>    <tr>      <th>4</th>      <td>disease</td>      <td>3</td>      <td>20</td>      <td>34.48</td>    </tr>    <tr>      <th>5</th>      <td></td>      <td>2</td>      <td>19</td>      <td>32.76</td>    </tr>    <tr>      <th>6</th>      <td></td>      <td>1</td>      <td>19</td>      <td>32.76</td>    </tr>  </tbody></table>
 
 
-Now to conduct the ANOVA; by default Type 3 sum of squares are used.
+Now to conduct the ANOVA; by default Type 3 sum of squares are used. There are a few
+ways one can conduct an ANOVA using Researchpy, the suggested approach is to assign
+the ANOVA model to an object that way one can utilize the built-in methods. If
+one does not want to do that, then running the model with and displaying the results
+in one-line will work too; the output will be returned as a tuple. The suggested
+approach will be shown in this example.
 
 
 .. code:: python
 
-  mod = anova("systolic ~ C(drug) + C(disease) + C(drug):C(disease)", data = systolic, sum_of_squares = 3)
-   mod.results()
+  m = anova("systolic ~ C(drug) + C(disease) + C(drug):C(disease)", data = systolic, sum_of_squares = 3)
+
+   desc, table = m.results()
+   print(desc, table, sep = "\n"*2)
 
 .. raw:: html
 
-  <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>Source</th>      <th>Sum of Squares</th>      <th>Degrees of Freedom</th>      <th>Mean Squares</th>      <th>F value</th>      <th>p-value</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>Model</td>      <td>4259.34</td>      <td>11</td>      <td>387.213</td>      <td>3.5057</td>      <td>0.0013</td>    </tr>    <tr>      <th>1</th>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <th>2</th>      <td>drug</td>      <td>2997.47</td>      <td>3</td>      <td>999.157</td>      <td>9.046</td>      <td>0.0001</td>    </tr>    <tr>      <th>3</th>      <td>disease</td>      <td>415.873</td>      <td>2</td>      <td>207.936</td>      <td>1.8826</td>      <td>0.1637</td>    </tr>    <tr>      <th>4</th>      <td>drug:disease</td>      <td>707.266</td>      <td>6</td>      <td>117.878</td>      <td>1.0672</td>      <td>0.3958</td>    </tr>    <tr>      <th>5</th>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <th>6</th>      <td>Residual</td>      <td>5080.82</td>      <td>46</td>      <td>110.453</td>      <td></td>      <td></td>    </tr>    <tr>      <th>7</th>      <td>Total</td>      <td>9340.16</td>      <td>57</td>      <td>163.862</td>      <td></td>      <td></td>    </tr>  </tbody></table>
+  <p>Note: Effect size values for factors are partial.</p>
+
+  <table border="1" class="dataframe"><thead>    <tr style="text-align: right;">    </tr>  </thead>  <tbody>    <tr>     <th>Number of obs =</th>      <td>58.0000</td>    </tr>    <tr>      <th>Root MSE =</th>      <td>10.5096</td>    </tr>    <tr>      <th>R-squared =</th>      <td>0.4560</td>    </tr>    <tr>      <th>Adj R-squared =</th>      <td>0.3259</td>    </tr>  </tbody></table>
+
+  <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>Source</th>      <th>Sum of Squares</th>      <th>Degrees of Freedom</th>      <th>Mean Squares</th>      <th>F value</th>      <th>p-value</th>      <th>Eta squared</th>      <th>Omega squared</th>    </tr>  </thead>  <tbody>    <tr>      <td>Model</td>      <td>4,259.3385</td>      <td>11</td>      <td>387.2126</td>      <td>3.5057</td>      <td>0.0013</td>      <td>0.4560</td>      <td>0.3221</td>    </tr>    <tr>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>drug</td>      <td>2,997.4719</td>      <td>3.0000</td>      <td>999.1573</td>      <td>9.0460</td>      <td>0.0001</td>      <td>0.3711</td>      <td>0.2939</td>    </tr>    <tr>      <td>disease</td>      <td>415.8730</td>      <td>2.0000</td>      <td>207.9365</td>      <td>1.8826</td>      <td>0.1637</td>      <td>0.0757</td>      <td>0.0295</td>    </tr>    <tr>      <td>drug:disease</td>      <td>707.2663</td>      <td>6.0000</td>      <td>117.8777</td>      <td>1.0672</td>      <td>0.3958</td>      <td>0.1222</td>      <td>0.0069</td>    </tr>    <tr>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>Residual</td>      <td>5,080.8167</td>      <td>46</td>      <td>110.4525</td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>Total</td>      <td>9,340.1552</td>      <td>57</td>      <td>163.8624</td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>  </tbody></table>
+
+
+If it's of interest, one can also access the underlying regression table.
+
+
+.. code:: python
+
+  m.regression_table()
+
+
+.. raw:: html
+
+  <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>systolic</th>      <th>Coef.</th>      <th>Std. Err.</th>      <th>t</th>      <th>p-value</th>      <th>95% Conf. Interval</th>    </tr>  </thead>  <tbody>    <tr>      <td>Intercept</td>      <td>29.3333</td>      <td>4.2905</td>      <td>6.8367</td>      <td>0.0000</td>      <td>[20.6969, 37.9697]</td>    </tr>    <tr>      <td>drug</td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>1</td>      <td>(reference)</td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>2</td>      <td>-1.3333</td>      <td>6.3639</td>      <td>-0.2095</td>      <td>0.8350</td>      <td>[-14.1432, 11.4765]</td>    </tr>    <tr>      <td>3</td>      <td>-13.0000</td>      <td>7.4314</td>      <td>-1.7493</td>      <td>0.0869</td>      <td>[-27.9587, 1.9587]</td>    </tr>    <tr>      <td>4</td>      <td>-15.7333</td>      <td>6.3639</td>      <td>-2.4723</td>      <td>0.0172</td>      <td>[-28.5432, -2.9235]</td>    </tr>    <tr>      <td>disease</td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>1</td>      <td>(reference)</td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>2</td>      <td>-1.0833</td>      <td>6.7839</td>      <td>-0.1597</td>      <td>0.8738</td>      <td>[-14.7387, 12.572]</td>    </tr>    <tr>      <td>3</td>      <td>-8.9333</td>      <td>6.3639</td>      <td>-1.4038</td>      <td>0.1671</td>      <td>[-21.7432, 3.8765]</td>    </tr>    <tr>      <td>drug:disease</td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>2:3</td>      <td>-0.9000</td>      <td>8.9999</td>      <td>-0.1000</td>      <td>0.9208</td>      <td>[-19.0159, 17.2159]</td>    </tr>    <tr>      <td>2:2</td>      <td>6.5833</td>      <td>9.7839</td>      <td>0.6729</td>      <td>0.5044</td>      <td>[-13.1107, 26.2774]</td>    </tr>    <tr>      <td>2:3</td>      <td>-0.9000</td>      <td>8.9999</td>      <td>-0.1000</td>      <td>0.9208</td>      <td>[-19.0159, 17.2159]</td>    </tr>    <tr>      <td>3:2</td>      <td>-10.8500</td>      <td>10.2435</td>      <td>-1.0592</td>      <td>0.2950</td>      <td>[-31.4692, 9.7692]</td>    </tr>    <tr>      <td>3:3</td>      <td>1.1000</td>      <td>10.2435</td>      <td>0.1074</td>      <td>0.9150</td>      <td>[-19.5192, 21.7192]</td>    </tr>    <tr>      <td>4:2</td>      <td>0.3167</td>      <td>9.3017</td>      <td>0.0340</td>      <td>0.9730</td>      <td>[-18.4066, 19.04]</td>    </tr>    <tr>      <td>4:3</td>      <td>9.5333</td>      <td>9.2022</td>      <td>1.0360</td>      <td>0.3056</td>      <td>[-8.9897, 28.0564]</td>    </tr>    <tr>      <td>2:3</td>      <td>-0.9000</td>      <td>8.9999</td>      <td>-0.1000</td>      <td>0.9208</td>      <td>[-19.0159, 17.2159]</td>    </tr>  </tbody></table>
