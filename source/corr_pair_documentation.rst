@@ -1,4 +1,8 @@
+***********
 corr_pair()
+***********
+
+Description
 ===========
 Conducts Pearson (default method), Spearman rank, or Kendall's Tau-b correlation analysis using
 pair wise deletion. Returns the relevant information and results in 1 DataFrame
@@ -8,9 +12,11 @@ DataFrame 1 contains the variables being compared in the index, followed by the
 corresponding r value, p-value, and N for the groups being compared.
 
 
+Parameters
+==========
 
-Arguments
----------
+Input
+-----
 **corr_pair(dataframe, method= "pearson")**
 
 * **dataframe** can either be a single Pandas Series or multiple Series/an
@@ -30,7 +36,10 @@ Arguments
 
 
 Examples
---------
+========
+
+Loading Packages and Data
+-------------------------
 .. code:: python
 
     import researchpy, numpy, pandas
@@ -42,6 +51,8 @@ Examples
                       columns= ['mental_score', 'physical_score', 'emotional_score',
                                'happiness_index'])
 
+Pearson r
+---------
 .. code:: python
 
     # Can pass the entire DataFrame or multiple Series

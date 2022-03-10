@@ -42,7 +42,7 @@ anova methods
 
 
 
-Effect size measures formulas
+Effect Size Measures Formulas
 =============================
 By default, this method will return the measures of :math:`R^2`, :math:`\text{Adj. }R^2`, :math:`\eta^2`, and :math:`\omega^2`;
 note that for the factor terms the reported :math:`\eta^2` and :math:`\omega^2` will be partial, i.e. :math:`\eta^2_p` and :math:`\omega^2_p` respectively.

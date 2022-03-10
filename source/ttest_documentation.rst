@@ -8,6 +8,7 @@ Conducts various comparison tests between two groups and returns data tables as
 Pandas DataFrames with relevant information pertaining to the statistical test conducted.
 
 This method can perform the following tests:
+
   * Independent sample t-test :cite:p:`scipy_ttest_ind`
 
       * `psudo-code: ttest(group1, group2, equal_variances = True, paired = False)`
@@ -101,7 +102,7 @@ Welch (1947)
 
 
 
-Effect size measures formulas
+Effect Size Measures Formulas
 =============================
 
 Cohen's d\ :sub:`s` (between subjects design)

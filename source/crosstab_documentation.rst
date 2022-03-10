@@ -1,5 +1,9 @@
+**********
 crosstab()
-==========
+**********
+
+Description
+===========
 Returns up to 3 DataFrames depending on what desired. Can calculate row, column,
 or cell percentages if requested. Otherwise, counts are returned as the default.
 
@@ -12,8 +16,11 @@ the expected frequency table.
 
 
 
-Arguments
-----------
+Parameters
+==========
+
+Input
+------
 **crosstab(group1, group2, prop= None, test = False, margins= True,
 correction = None, cramer_correction = None, exact = False, expected_freqs= False)**
 
@@ -22,6 +29,7 @@ correction = None, cramer_correction = None, exact = False, expected_freqs= Fals
     the row percentages, 'column' will calculate the column percentages, and 'cell'
     will calculate the cell percentage based on the entire sample
   * **test**, can take "chi-square", "g-test", "mcnemar", or "fisher".
+
       * If "chi-square", the chi-square (:math:`\chi^2`) test of independence :cite:`scipy_chi2` will
         be calculated and returned in a second DataFrame.
       * If "g-test", will conduct the G-test (likelihood-ratio :math:`\chi^2`) :cite:`scipy_chi2` and
@@ -42,8 +50,11 @@ correction = None, cramer_correction = None, exact = False, expected_freqs= Fals
   * **expected_freqs**, if True, will return a DataFrame that contains the
     expected counts for each cell. Not a valid argurment for *mcnemar* test.
 
-**returns**
-  * Up to 3 Pandas DataFrames as a tuple;
+Returns
+--------
+
+Up to 3 Pandas DataFrames will be returned within a tuple:
+
       * First DataFrame is always the crosstab table with either the counts,
         cell, row, or column percentages
       * Second DataFrame is either the test results or the expected frequencies.
@@ -60,14 +71,14 @@ correction = None, cramer_correction = None, exact = False, expected_freqs= Fals
 
 
 
-Effect size measures formulas
------------------------------
+Effect Size Measures Formulas
+=============================
 .. note::
   If adjusted :math:`\chi^2` values are used in the test's calculation, then those
   adjusted :math:`\chi^2` values are also used to calculate effect size.
 
 Cramer's Phi (2x2 table)
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 For analyses were it's a 2x2 table, the following formula is used to
 calculate Cramer's Phi (:math:`\phi`) :cite:`cramer2016`:
 
@@ -79,7 +90,7 @@ Where N = total number of observations in the analysis
 
 
 Cramer's V (RxC where R or C > 2)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------
 For analyses were it's a table that is larger than a 2x2, the
 following formula is used to calculate Cramer's V :cite:`cramer2016`:
 
@@ -101,7 +112,10 @@ Where r is the number of rows and c is the number of columns, and
 
 
 Examples
---------
+========
+
+Loading Packages and Data
+-------------------------
 .. code:: python
 
     import researchpy, pandas, numpy
@@ -161,6 +175,8 @@ Examples
     </div>
 
 
+Crosstabulation with Frequency
+------------------------------
 
 .. code:: python
 
@@ -228,13 +244,14 @@ Examples
     </div>
 
 
+Crosstabulation with Cell Percentages
+-------------------------------------
+Cell percentages are calculated by taking the frequency of the cell and dividing it by the total N.
+For example, the cell proportion for :math:`\text{disease}_0` and :math:`\text{alive}_0` = :math:`\frac{9}{101}`.
 
 .. code:: python
 
-    # Demonstration of calculating cell proportions
-
     crosstab = researchpy.crosstab(df['disease'], df['alive'], prop= "cell")
-
     crosstab
 
 .. raw:: html
@@ -295,13 +312,11 @@ Examples
     </div>
 
 
-
+Crosstabulation with Row Percentages
+-------------------------------------
 .. code:: python
 
-    # Demonstration of calculating row proportions
-
     crosstab = researchpy.crosstab(df['disease'], df['alive'], prop= "row")
-
     crosstab
 
 .. raw:: html
@@ -362,13 +377,12 @@ Examples
     </div>
 
 
+Crosstabulation with Column Percentages
+---------------------------------------
 
 .. code:: python
 
-    # Demonstration of calculating column proportions
-
     crosstab = researchpy.crosstab(df['disease'], df['alive'], prop= "col")
-
     crosstab
 
 .. raw:: html
@@ -429,6 +443,8 @@ Examples
     </div>
 
 
+Chi Squared (:math:`\chi^2`) Test of Independence
+--------------------------------------------------
 
 .. code:: python
 
@@ -615,13 +631,11 @@ Examples
     </div>
 
 
-
+G-test
+--------
 .. code:: python
 
-    # Can also conduct the G-test (likelihood-ratio chi-square)
-
     crosstab, res = researchpy.crosstab(df['disease'], df['alive'], test= "g-test")
-
     res
 
 .. raw:: html
@@ -656,16 +670,15 @@ Examples
     </div>
 
 
-
+Fisher's Exact test
+-------------------
 .. code:: python
-
-    # Can also conduct Fisher's exact test
 
     # Need 2x2 data for Fisher's test.
     numpy.random.seed(345)
 
     df = pandas.DataFrame(numpy.random.randint(2, size= (90, 2)),
-                      columns= ['tx', 'cured'])
+                          columns= ['tx', 'cured'])
 
     crosstab, res = researchpy.crosstab(df['tx'], df['cured'], test= "fisher")
 
@@ -764,16 +777,16 @@ Examples
     </div>
 
 
+McNemar test
+-------------
+Make sure that the outcomes are labelled the same in both variables.
 
 .. code:: python
 
-    # Lastly, the McNemar test
-    # Make sure your outcomes are labelled the same in
-    # both variables
     numpy.random.seed(345)
 
     df = pandas.DataFrame(numpy.random.randint(2, size= (90, 2)),
-                      columns= ['time1', 'time2'])
+                          columns= ['time1', 'time2'])
 
     crosstab, res = researchpy.crosstab(df['time1'], df['time2'], test= "mcnemar")
 
@@ -869,7 +882,7 @@ Examples
 
 
 References
-----------
+==========
 .. bibliography:: refs.bib
    :list: bullet
    :cited:

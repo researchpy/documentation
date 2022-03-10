@@ -1,4 +1,8 @@
+*************
 corr_case()
+*************
+
+Description
 ===========
 Conducts Pearson (default method), Spearman rank, or Kendall's Tau-b correlation analysis using
 case wise deletion. Returns the relevant information and results in 3 DataFrames
@@ -11,8 +15,11 @@ DataFrame 2 contains the r value results in a matrix style look.
 
 DataFrame 3 contains the p-values in a matrix style look.
 
-Arguments
----------
+Parameters
+==========
+
+Input
+-----
 **def corr_case(dataframe, method = "pearson")**
 
   * **dataframe** can either be a single Pandas Series or multiple Series/an
@@ -31,7 +38,10 @@ Arguments
  .. _Kendall Tau-b: https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kendalltau.html
 
 Examples
---------
+========
+
+Loading Packages and Data
+-------------------------
 .. code:: python
 
     import researchpy, numpy, pandas
@@ -41,6 +51,10 @@ Examples
 
     df = pandas.DataFrame(numpy.random.randint(10, size= (100, 2)),
                       columns= ['beck', 'srq'])
+
+
+Pearson r
+---------
 
 .. code:: python
 

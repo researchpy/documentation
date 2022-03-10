@@ -3,17 +3,17 @@ difference_test()
 *****************
 
 Description
-============
+===========
 Conducts a few different statistical tests which test for a difference between
 independent or related samples with or without equal variances and has the ability
 to calculate the effect size of the observed difference. The data is
 returned in a Pandas DataFrame by default, but can be returned as a dictionary
 if specified.
 
-This method is similar to researchpy.ttest(), except it allows the user to use
-the formula syntax.
+This method is similar to researchpy.ttest(), except it allows the user to use the formula syntax.
 
 This method can perform the following tests:
+
   * Independent sample t-test :cite:`2018:scipy_ttest_ind`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = True)`
@@ -125,8 +125,8 @@ Welch (1947)
   -2 + \frac{(\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y})^2}{\frac{(\frac{s^2_x}{n_x})^2}{n_x+1} + \frac{(\frac{s^2_y}{n_y})^2}{n_y+1}}
 
 
-Effect size measures formulas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Effect Size Measures Formulas
+=============================
 
 Cohen's d\ :sub:`s` (between subjects design)
 """"""""""""""""""""""""""""""""""""""""""""""
