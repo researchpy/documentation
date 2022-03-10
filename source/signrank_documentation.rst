@@ -21,15 +21,15 @@ Input
 -----
 **signrank(formula_like = None, data = {}, group1 = None, group2 = None, zero_method = "pratt", correction = False, mode = "auto")**
 
-  * **formula_like** : A valid formula which will parse the data into a design matrix.
+  * **formula_like** : A valid `formula <https://patsy.readthedocs.io/en/latest/formulas.html>`_ which will parse the data into a design matrix.
   * **data** : The dataframe which contains the data to be analyzed; required if using *formula_like*.
   * **group1** : The array like object which contains data for the paired-sample.
   * **group2** : The array like object which contains data for the paired-sample.
-  * **zero_method** : How to handle the zero-differences in the ranking process. Available options are (from :cite:`scipy_wilcoxon`):
+  * **zero_method** : How to handle the zero-differences in the ranking process. Available options are (see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`_):
     * *"pratt"* : Includes zero-differences in the ranking process, but drops the ranks of the zeros (default).
     * *"wilcox"* : Discards all zero-differences.
-  * **correction** : Boolean value indicating if the continuity correction should be applied; see :cite:`scipy_wilcoxon` for more information.
-  * **mode** : Method to calculate the p-value, see :cite:`scipy_wilcoxon` for more information. Options are:
+  * **correction** : Boolean value indicating if the continuity correction should be applied; see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`_ for more information.
+  * **mode** : Method to calculate the p-value, see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`_ for more information. Options are:
     * *"auto"* : Use the exact distribution if there are no more than 25 observations and no ties, otherwise a normal approximation will be used (default).
     * *"exact"* : Use the exact distribution, can be used if there are no more than 25 observations and no ties.
     * *"approx"* : Use a normal approximation.
@@ -87,13 +87,13 @@ called 'fuel'.
 .. code:: python
 
  import researchpy as rp
-  import pandas as pd
-  # Used to load example data #
-  import statsmodels.datasets
+ import pandas as pd
+ # Used to load example data #
+ import statsmodels.datasets
 
-  fuel = statsmodels.datasets.webuse('fuel')
-  fuel["id"] = range(1, fuel.shape[0] + 1)
-  fuel.info()
+ fuel = statsmodels.datasets.webuse('fuel')
+ fuel["id"] = range(1, fuel.shape[0] + 1)
+ fuel.info()
 
 .. raw:: html
 
@@ -110,7 +110,7 @@ the data ready for this demonstration section the transformation will be conduct
                        value_vars = ["mpg1", "mpg2"],
                        var_name = "mpg")
 
-   fuel2.head()
+  fuel2.head()
 
 .. raw:: html
 
@@ -127,7 +127,7 @@ it makes the output look cleaner.
 
   desc, var_adj, res = signrank(group1 = fuel.mpg1, group2 = fuel.mpg2).conduct()
 
-   print(desc, var_adj, res, sep = "\n"*2)
+  print(desc, var_adj, res, sep = "\n"*2)
 
 .. raw:: html
 
@@ -165,7 +165,7 @@ Signrank using Long Structured Datasets
 
     desc, var_adj, res = signrank("value ~ C(mpg)", fuel2).conduct()
 
-     print(desc, var_adj, res, sep = "\n"*2)
+    print(desc, var_adj, res, sep = "\n"*2)
 
 .. raw:: html
 
@@ -174,3 +174,11 @@ Signrank using Long Structured Datasets
        <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>unadjusted variance</th>      <th>adjustment for ties</th>      <th>adjustment for zeros</th>      <th>adjusted variance</th>    </tr>  </thead>  <tbody>    <tr>      <td>162.5000</td>      <td>-1.6250</td>      <td>-0.2500</td>      <td>160.6250</td>    </tr>  </tbody></table>
 
        <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>z</th>      <th>w</th>      <th>pval</th>    </tr>  </thead>  <tbody>    <tr>      <td>-1.9726</td>      <td>13.5000</td>      <td>0.0485</td>    </tr>  </tbody></table>
+
+
+
+
+References
+==========
+.. bibliography:: refs.bib
+  :list: bullet

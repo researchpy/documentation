@@ -193,6 +193,9 @@ calculated as:
 
 Examples
 ========
+
+Loading Packages and Data
+-------------------------
 .. code:: python
 
     import numpy, pandas, researchpy
@@ -636,72 +639,21 @@ Wilcoxon Signed-Rank Test
 .. code:: python
 
     # Wilcoxon signed-rank test
-    researchpy.ttest(df['healthy'], df['non-healthy'],
-                     equal_variances= False, paired= True)
+    desc, res = researchpy.ttest(df['healthy'], df['non-healthy'],
+                                 equal_variances= False, paired= True)
 
 .. raw:: html
 
-    <div>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Wilcoxon signed-rank test</th>
-          <th>results</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>Mean for healthy =</td>
-          <td>4.5900</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>Mean for non-healthy =</td>
-          <td>4.1600</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>T value =</td>
-          <td>1849.5000</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>Z value =</td>
-          <td>-0.9638</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>Two sided p value =</td>
-          <td>0.3347</td>
-        </tr>
-        <tr>
-          <th>5</th>
-          <td>r =</td>
-          <td>-0.0681</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
+    <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>sign</th>      <th>obs</th>      <th>sum ranks</th>      <th>expected</th>    </tr>  </thead>  <tbody>    <tr>      <td>positive</td>      <td>52</td>      <td>2,804.5000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>negative</td>      <td>39</td>      <td>2,200.5000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>zero</td>      <td>9</td>      <td>45.0000</td>      <td>45.0000</td>    </tr>    <tr>      <td>all</td>      <td>100</td>      <td>5,050.0000</td>      <td>5,050.0000</td>    </tr>  </tbody></table>
 
-
-
-.. code:: python
-
-    # Exporting descriptive table (des) and result table (res) to same
-    # csv file
-    des, res = researchpy.ttest(df['healthy'], df['non-healthy'])
-
-    des.to_csv("C:\\Users\\...\\test.csv", index= False)
-    res.to_csv("C:\\Users\\...\\test.csv", index= False, mode= 'a')
+    <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>Wilcoxon signed-rank test</th>      <th>results</th>    </tr>  </thead>  <tbody>    <tr>      <td>Mean for healthy =</td>      <td>4.5900</td>    </tr>    <tr>      <td>Mean for non-healthy =</td>      <td>4.1600</td>    </tr>    <tr>      <td>W value =</td>      <td>2,200.5000</td>    </tr>    <tr>      <td>Z value =</td>      <td>1.0411</td>    </tr>    <tr>      <td>p value =</td>      <td>0.2978</td>    </tr>    <tr>      <td>Rank-Biserial r =</td>      <td>0.1196</td>    </tr>    <tr>      <td>Pearson r =</td>      <td>0.1041</td>    </tr>  </tbody></table>
 
 
 
 
 
 References
-----------
+==========
 .. bibliography:: refs.bib
    :cited:
    :list: bullet

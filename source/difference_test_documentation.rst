@@ -72,16 +72,16 @@ Arguments
 .. note::
     This can be a one step, or two step process.
 
-    **One step**
-    .. code:: python
+**One step**
+.. code:: python
 
-        difference_test("DV ~ IV", data).conduct()
+    difference_test("DV ~ IV", data).conduct()
 
-    **Two step**
-    .. code:: python
+**Two step**
+.. code:: python
 
-        model = difference_test("DV ~ IV", data)
-        model.conduct()
+    model = difference_test("DV ~ IV", data)
+    model.conduct()
 
 
 
@@ -212,7 +212,10 @@ correlation coefficient r :cite:`Kerby2012` for the Wilcoxon ranked-sign test.
 
 
 Examples
---------
+========
+
+Loading Packages and Data
+-------------------------
 First let's create an example data set to work through the examples. This will be done using
 numpy (to create fake data) and pandas (to hold the data in a data frame).
 
@@ -267,6 +270,9 @@ will be shown below.
 Now the data is in the correct structure.
 
 
+Independent Samples t-test
+--------------------------
+
 .. code:: python
 
     # Independent t-test
@@ -274,9 +280,9 @@ Now the data is in the correct structure.
     # If you don't store the 2 returned DataFrames, it outputs as a tuple and
     # is displayed
     rp.difference_test("StressReactivity ~ C(Exercise)",
-                    data = df2,
-                    equal_variances = True,
-                    independent_samples = True).conduct(effect_size = "all")
+                       data = df2,
+                       equal_variances = True,
+                       independent_samples = True).conduct(effect_size = "all")
 
 .. parsed-literal::
 
@@ -302,9 +308,9 @@ Now the data is in the correct structure.
 
     # Otherwise you can store them as objects
     summary, results = rp.difference_test("StressReactivity ~ C(Exercise)",
-                                       data = df2,
-                                       equal_variances = True,
-                                       independent_samples = True).conduct(effect_size = "all")
+                                          data = df2,
+                                          equal_variances = True,
+                                          independent_samples = True).conduct(effect_size = "all")
 
     summary
 
@@ -339,13 +345,16 @@ Now the data is in the correct structure.
 
 
 
+Paired Samples t-test
+---------------------
+
 .. code:: python
 
     # Paired samples t-test
     summary, results = rp.difference_test("StressReactivity ~ C(Exercise)",
-                                       data = df2,
-                                       equal_variances = True,
-                                       independent_samples = False).conduct(effect_size = "all")
+                                          data = df2,
+                                          equal_variances = True,
+                                          independent_samples = False).conduct(effect_size = "all")
 
     summary
 
@@ -378,6 +387,10 @@ Now the data is in the correct structure.
     10          Point-Biserial r   0.105763
 
 
+Welch's t-test
+--------------
+One can request either the Satterthwaite (default) or Welch degrees of freedom; to
+calculate degrees of freedom using Welch's formula set  welch_dof = "welch"
 
 .. code:: python
 
@@ -420,47 +433,27 @@ Now the data is in the correct structure.
 
 
 
+Wilcoxon signed-rank Test
+--------------------------
 .. code:: python
 
     # Wilcoxon signed-rank test
-    summary, results = rp.difference_test("StressReactivity ~ C(Exercise)",
-                                       data = df2,
-                                       equal_variances = False,
-                                       independent_samples = False).conduct(effect_size = "r")
+    desc, var_adj, res = difference_test("StressReactivity ~ C(Exercise)", df2, independent_samples=False, equal_variances = False).conduct()
 
-    summary
+    print(desc, var_adj, res, sep = "\n"*2)
 
-.. parsed-literal::
+.. raw:: html
 
-      Name    N  Mean Variance       SD        SE  95% Conf.  Interval
-    0   No  100  4.59  7.55747  2.74909  0.274909   4.044522  5.135478
-    1  Yes  100  4.16  9.81253   3.1325  0.313250   3.538445  4.781555
+    <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>sign</th>      <th>obs</th>      <th>sum ranks</th>      <th>expected</th>    </tr>  </thead>  <tbody>    <tr>      <td>positive</td>      <td>40</td>      <td>2,298.0000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>negative</td>      <td>51</td>      <td>2,707.0000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>zero</td>      <td>9</td>      <td>45.0000</td>      <td>45.0000</td>    </tr>    <tr>      <td>all</td>      <td>100</td>      <td>5,050.0000</td>      <td>5,050.0000</td>    </tr>  </tbody></table>
 
-.. code:: python
+    <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>unadjusted variance</th>      <th>adjustment for ties</th>      <th>adjustment for zeros</th>      <th>adjusted variance</th>    </tr>  </thead>  <tbody>    <tr>      <td>84,587.5000</td>      <td>-375.1250</td>      <td>-71.2500</td>      <td>84,141.1250</td>    </tr>  </tbody></table>
 
-    results
-
-.. parsed-literal::
-
-      Wilcoxon signed-rank test   Results
-    0                (No = Yes)
-    1                       W =    1849.5
-    2       Two sided p-value =  0.333755
-    3          Point-Biserial r  0.366238
-
-
-.. code:: python
-
-    # Exporting descriptive table (summary) and result table (results) to same
-    # csv file
-    summary.to_csv("C:\\Users\\...\\test.csv", index= False)
-    results.to_csv("C:\\Users\\...\\test.csv", index= False, mode= 'a')
-
+    <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>z</th>      <th>w</th>      <th>pval</th>    </tr>  </thead>  <tbody>    <tr>      <td>-0.7050</td>      <td>2,298.0000</td>      <td>0.4808</td>    </tr>  </tbody></table>
 
 
 
 
 References
-----------
+==========
 .. bibliography:: refs.bib
    :list: bullet

@@ -56,12 +56,12 @@ called 'auto'.
 .. code:: python
 
  import researchpy as rp
-  import pandas as pd
-  # Used to load example data #
-  import statsmodels.datasets
+ import pandas as pd
+ # Used to load example data #
+ import statsmodels.datasets
 
-  auto = statsmodels.datasets.webuse('auto')
-  auto.info()
+ auto = statsmodels.datasets.webuse('auto')
+ auto.info()
 
 
 .. parsed-literal::
