@@ -13,7 +13,7 @@ Parameters
 
 Input
 -----
-**anova(self, formula_like, data = {}, sum_of_squares = 3)**
+**anova(formula_like, data = {}, sum_of_squares = 3)**
 
   * **formula_like** : A valid formula which will parse the data into a design matrix.
   * **data** : The dataframe which contains the data to be analyzed.
@@ -30,11 +30,9 @@ anova methods
 
   * **results(return_type = "Dataframe", decimals = 4, pretty_format = True)**
 
-      * **return_type** : The type of data structure the results should be returned as. Supported options
-      are 'Dataframe' which will return a Pandas DataFrame or 'Dictionary' which will return a dictionary.
+      * **return_type** : The type of data structure the results should be returned as. Supported options are 'Dataframe' which will return a Pandas DataFrame or 'Dictionary' which will return a dictionary.
       * **decimals** : The number of decimal places the data should be rounded too.
-      * **pretty_format ** : If pretty formatting should be applied. This adds extra empty spaces in the returned data
-      structure for visualization of the results.
+      * **pretty_format ** : If pretty formatting should be applied. This adds extra empty spaces in the returned data structure for visualization of the results.
 
   * **regression_table(return_type = "Dataframe", decimals = 4, conf_level = 0.95)**
 
@@ -96,6 +94,7 @@ called 'systolic'.
 .. code:: python
 
   import researchpy as rp
+  import pandas as pd
   # Used to load example data #
   import statsmodels.datasets
 
