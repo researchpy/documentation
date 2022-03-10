@@ -94,7 +94,7 @@ First demonstration will show how to get descriptive statistics for a single var
 
 .. code:: python
 
-  summarize(auto.price)
+  rp.summarize(auto.price)
 
 .. raw:: html
 
@@ -108,7 +108,7 @@ Now let's get information from 2 variables at the same time.
 
 .. code:: python
 
-  summarize(auto[["price", "mpg"]])
+  rp.summarize(auto[["price", "mpg"]])
 
 .. raw:: html
 
@@ -126,7 +126,7 @@ Pandas Series Groupby Object
 
 .. code:: python
 
-  summarize(auto.groupby("foreign")["price"])
+  rp.summarize(auto.groupby("foreign")["price"])
 
 
 .. raw:: html
@@ -139,7 +139,7 @@ Pandas Dataframe Groupby Object
 
 .. code:: python
 
-  summarize(auto.groupby(["foreign"])[["price", "mpg"]])
+  rp.summarize(auto.groupby(["foreign"])[["price", "mpg"]])
 
 .. raw:: html
 

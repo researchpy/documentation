@@ -201,12 +201,11 @@ that N is the total number of observations.
 Rank-Biserial correlation coefficient r (between or within subjects design)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 The following formula is used to calculate the Rank-Biserial
-correlation coefficient r using the W-value and N. This formula
-is used to calculate the r coefficient for the Wilcoxon ranked-sign test.
+correlation coefficient r :cite:`Kerby2012` for the Wilcoxon ranked-sign test.
 
 .. math::
 
-  \text{Rank-Biserial r} = \frac{W}{\sum{\text{rank}}}
+  \text{Rank-Biserial r = } \frac{\sum{Ranks}_{+} - \sum{Ranks}_{-}}{\sum{Ranks}_{total}}
 
 
 
@@ -274,7 +273,7 @@ Now the data is in the correct structure.
 
     # If you don't store the 2 returned DataFrames, it outputs as a tuple and
     # is displayed
-    difference_test("StressReactivity ~ C(Exercise)",
+    rp.difference_test("StressReactivity ~ C(Exercise)",
                     data = df2,
                     equal_variances = True,
                     independent_samples = True).conduct(effect_size = "all")
@@ -302,7 +301,7 @@ Now the data is in the correct structure.
 .. code:: python
 
     # Otherwise you can store them as objects
-    summary, results = difference_test("StressReactivity ~ C(Exercise)",
+    summary, results = rp.difference_test("StressReactivity ~ C(Exercise)",
                                        data = df2,
                                        equal_variances = True,
                                        independent_samples = True).conduct(effect_size = "all")
@@ -343,7 +342,7 @@ Now the data is in the correct structure.
 .. code:: python
 
     # Paired samples t-test
-    summary, results = difference_test("StressReactivity ~ C(Exercise)",
+    summary, results = rp.difference_test("StressReactivity ~ C(Exercise)",
                                        data = df2,
                                        equal_variances = True,
                                        independent_samples = False).conduct(effect_size = "all")
@@ -383,7 +382,7 @@ Now the data is in the correct structure.
 .. code:: python
 
     # Welch's t-test
-    summary, results = difference_test("StressReactivity ~ C(Exercise)",
+    summary, results = rp.difference_test("StressReactivity ~ C(Exercise)",
                                        data = df2,
                                        equal_variances = False,
                                        independent_samples = True).conduct(effect_size = "all")
@@ -424,7 +423,7 @@ Now the data is in the correct structure.
 .. code:: python
 
     # Wilcoxon signed-rank test
-    summary, results = difference_test("StressReactivity ~ C(Exercise)",
+    summary, results = rp.difference_test("StressReactivity ~ C(Exercise)",
                                        data = df2,
                                        equal_variances = False,
                                        independent_samples = False).conduct(effect_size = "r")

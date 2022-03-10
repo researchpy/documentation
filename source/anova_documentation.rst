@@ -32,7 +32,7 @@ anova methods
 
       * **return_type** : The type of data structure the results should be returned as. Supported options are 'Dataframe' which will return a Pandas DataFrame or 'Dictionary' which will return a dictionary.
       * **decimals** : The number of decimal places the data should be rounded too.
-      * **pretty_format ** : If pretty formatting should be applied. This adds extra empty spaces in the returned data structure for visualization of the results.
+      * **pretty_format** : If pretty formatting should be applied. This adds extra empty spaces in the returned data structure for visualization of the results.
 
   * **regression_table(return_type = "Dataframe", decimals = 4, conf_level = 0.95)**
 
@@ -93,7 +93,7 @@ called 'systolic'.
 
 .. code:: python
 
-  import researchpy as rp
+ import researchpy as rp
   import pandas as pd
   # Used to load example data #
   import statsmodels.datasets

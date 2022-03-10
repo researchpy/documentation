@@ -180,12 +180,12 @@ that N is the total number of observations.
 
 Rank-Biserial correlation coefficient r (between or within subjects design)
 ---------------------------------------------------------------------------
-The Rank-Biserial r is also provided for the Wilcoxon signed-rank test as is
+The Rank-Biserial r :cite:`Kerby2012` is also provided for the Wilcoxon signed-rank test as is
 calculated as:
 
 .. math::
 
-  \text{Rank-Biserial r} = \frac{W}{\sum{\text{rank}}}
+  \text{Rank-Biserial r = } \frac{\sum{Ranks}_{+} - \sum{Ranks}_{-}}{\sum{Ranks}_{total}}
 
 
 
