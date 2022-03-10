@@ -46,6 +46,9 @@ Pandas DataFrame or Python dictionary object containing the univariate descripti
 
 Examples
 ========
+
+Loading Packages and Data
+-------------------------
 First to load required libraries for this example. Below, an example data set will be loaded
 in using statsmodels.datasets; the data loaded in is a data set available through Stata
 called 'auto'.
@@ -61,7 +64,7 @@ called 'auto'.
   auto.info()
 
 
-.. .. parsed-literal::
+.. parsed-literal::
 
   <class 'pandas.core.frame.DataFrame'>
   Int64Index: 74 entries, 0 to 73
@@ -82,3 +85,62 @@ called 'auto'.
   11  foreign       74 non-null     category
   dtypes: category(1), float32(2), float64(1), int16(7), object(1)
   memory usage: 3.5+ KB
+
+
+
+Single Variable
+---------------
+First demonstration will show how to get descriptive statistics for a single variable.
+
+.. code:: python
+
+  summarize(auto.price)
+
+.. raw:: html
+
+  <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>Name</th>      <th>N</th>      <th>Mean</th>      <th>Median</th>      <th>Variance</th>      <th>SD</th>      <th>SE</th>      <th>95% Conf. Interval</th>    </tr>  </thead>  <tbody>    <tr>      <td>price</td>      <td>74</td>      <td>6,165.2568</td>      <td>5,006.5000</td>      <td>8,699,525.9743</td>      <td>2,949.4959</td>      <td>342.8719</td>      <td>[5481.914, 6848.5995]</td>    </tr>  </tbody></table>
+
+
+
+Two Variables
+-------------
+Now let's get information from 2 variables at the same time.
+
+.. code:: python
+
+  summarize(auto[["price", "mpg"]])
+
+.. raw:: html
+
+  <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>Name</th>      <th>N</th>      <th>Mean</th>      <th>Median</th>      <th>Variance</th>      <th>SD</th>      <th>SE</th>      <th>95% Conf. Interval</th>    </tr>  </thead>  <tbody>    <tr>      <td>price</td>      <td>74</td>      <td>6,165.2568</td>      <td>5,006.5000</td>      <td>8,699,525.9743</td>      <td>2,949.4959</td>      <td>342.8719</td>      <td>[5481.914, 6848.5995]</td>    </tr>    <tr>      <td>mpg</td>      <td>74</td>      <td>21.2973</td>      <td>20.0000</td>      <td>33.4720</td>      <td>5.7855</td>      <td>0.6726</td>      <td>[19.9569, 22.6377]</td>    </tr>  </tbody></table>
+
+
+
+Pandas Groupby Objects
+----------------------
+This method also supports calculations for Pandas Series and Pandas DataFrame Groupby objects.
+
+
+Pandas Series Groupby Object
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code:: python
+
+  summarize(auto.groupby("foreign")["price"])
+
+
+.. raw:: html
+
+  <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>foreign</th>      <th>N</th>      <th>Mean</th>      <th>Median</th>      <th>Variance</th>      <th>SD</th>      <th>SE</th>      <th>95% Conf. Interval</th>    </tr>  </thead>  <tbody>    <tr>      <td>Domestic</td>      <td>52</td>      <td>6,072.4231</td>      <td>4,782.5000</td>      <td>9,592,054.9155</td>      <td>3,097.1043</td>      <td>429.4911</td>      <td>[5210.1837, 6934.6624]</td>    </tr>    <tr>      <td>Foreign</td>      <td>22</td>      <td>6,384.6818</td>      <td>5,759.0000</td>      <td>6,874,438.7035</td>      <td>2,621.9151</td>      <td>558.9942</td>      <td>[5222.1898, 7547.1738]</td>    </tr>  </tbody></table>
+
+
+Pandas Dataframe Groupby Object
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code:: python
+
+  summarize(auto.groupby(["foreign"])[["price", "mpg"]])
+
+.. raw:: html
+
+  <table border="1" class="dataframe">  <thead>    <tr>      <th>foreign</th>      <th colspan="7" halign="left">price</th>      <th colspan="7" halign="left">mpg</th>    </tr>    <tr>      <th></th>      <th>N</th>      <th>Mean</th>      <th>Median</th>      <th>Variance</th>      <th>SD</th>      <th>SE</th>      <th>95% Conf. Interval</th>      <th>N</th>      <th>Mean</th>      <th>Median</th>      <th>Variance</th>      <th>SD</th>      <th>SE</th>      <th>95% Conf. Interval</th>    </tr>  </thead>  <tbody>    <tr>      <td>Domestic</td>      <td>52</td>      <td>6,072.4231</td>      <td>4,782.5000</td>      <td>9,592,054.9155</td>      <td>3,097.1043</td>      <td>429.4911</td>      <td>[5210.1837, 6934.6624]</td>      <td>52</td>      <td>19.8269</td>      <td>19.0000</td>      <td>22.4989</td>      <td>4.7433</td>      <td>0.6578</td>      <td>[18.5064, 21.1475]</td>    </tr>    <tr>      <td>Foreign</td>      <td>22</td>      <td>6,384.6818</td>      <td>5,759.0000</td>      <td>6,874,438.7035</td>      <td>2,621.9151</td>      <td>558.9942</td>      <td>[5222.1898, 7547.1738]</td>      <td>22</td>      <td>24.7727</td>      <td>24.5000</td>      <td>43.7078</td>      <td>6.6112</td>      <td>1.4095</td>      <td>[21.8415, 27.704]</td>    </tr>  </tbody></table>
