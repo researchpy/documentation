@@ -193,6 +193,4 @@ If it's of interest, one can also access the underlying regression table.
 References
 ==========
 .. footbibliography:: refs.bib
-
-  :cited:
   :list: bullet

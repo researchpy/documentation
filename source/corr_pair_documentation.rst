@@ -179,5 +179,4 @@ Pearson r
 References
 ----------
 .. footbibliography:: refs.bib
-   :cited:
    :list: bullet

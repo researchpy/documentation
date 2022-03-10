@@ -885,4 +885,3 @@ References
 ==========
 .. footbibliography:: refs.bib
    :list: bullet
-   :cited:
