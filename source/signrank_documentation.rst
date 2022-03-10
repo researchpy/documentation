@@ -59,13 +59,13 @@ Effect size measures formulas
 =============================
 By default no effect size measures are calculated.
 
-Rank-Biserial r :cite:`Kerby2012`
+Rank-Biserial r :footcite:p:`Kerby2012`
 """"""""""""""""""""""""""""""""""""""""""""""""
 .. math::
 
   \text{Rank-Biserial r = } \frac{\sum{Ranks}_{+} - \sum{Ranks}_{-}}{\sum{Ranks}_{total}}
 
-Pearson r :cite:`Fritz_Morris_Richler2012`
+Pearson r :footcite:p:`Fritz_Morris_Richler2012`
 """"""""""""""""""""""""""""""""""""""""""
 .. math::
 
@@ -180,5 +180,5 @@ Signrank using Long Structured Datasets
 
 References
 ==========
-.. bibliography::
+.. footbibliography::
   :list: bullet
