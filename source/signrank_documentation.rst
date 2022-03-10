@@ -118,7 +118,7 @@ the data ready for this demonstration section the transformation will be conduct
 
 
 
-Signrank using Wide Structure Datasets
+Signrank using Wide Structured Datasets
 ---------------------------------------
 Since the test returns 3 data objects, this demonstration will assign each data object to variable. This is not required, but
 it makes the output look cleaner.
@@ -145,3 +145,32 @@ If one does not assign each object to a variable, the output is still readable.
   signrank(group1 = fuel.mpg1, group2 = fuel.mpg2).conduct()
 
 .. raw:: literal
+
+(       sign  obs  sum ranks  expected
+0  positive    3    13.5000   38.5000
+1  negative    8    63.5000   38.5000
+2      zero    1     1.0000    1.0000
+3       all   12    78.0000   78.0000,
+unadjusted variance  adjustment for ties  adjustment for zeros  adjusted variance
+0             162.5000              -1.6250               -0.2500           160.6250,
+     z       w   pval
+0 -1.9726 13.5000 0.0485)
+
+
+
+Signrank using Long Structured Datasets
+---------------------------------------
+
+.. code:: python
+
+    desc, var_adj, res = signrank("value ~ C(mpg)", fuel2).conduct()
+
+     print(desc, var_adj, res, sep = "\n"*2)
+
+.. raw:: html
+
+       <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>sign</th>      <th>obs</th>      <th>sum ranks</th>      <th>expected</th>    </tr>  </thead>  <tbody>    <tr>      <td>positive</td>      <td>3</td>      <td>13.5000</td>      <td>38.5000</td>    </tr>    <tr>      <td>negative</td>      <td>8</td>      <td>63.5000</td>      <td>38.5000</td>    </tr>    <tr>      <td>zero</td>      <td>1</td>      <td>1.0000</td>      <td>1.0000</td>    </tr>    <tr>      <td>all</td>      <td>12</td>      <td>78.0000</td>      <td>78.0000</td>    </tr>  </tbody></table>
+
+       <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>unadjusted variance</th>      <th>adjustment for ties</th>      <th>adjustment for zeros</th>      <th>adjusted variance</th>    </tr>  </thead>  <tbody>    <tr>      <td>162.5000</td>      <td>-1.6250</td>      <td>-0.2500</td>      <td>160.6250</td>    </tr>  </tbody></table>
+
+       <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>z</th>      <th>w</th>      <th>pval</th>    </tr>  </thead>  <tbody>    <tr>      <td>-1.9726</td>      <td>13.5000</td>      <td>0.0485</td>    </tr>  </tbody></table>

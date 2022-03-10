@@ -46,6 +46,7 @@ streamlined during this process. For an example, see the new -difference_test- m
    summary_cat_documentation
    difference_test_documentation
    ttest_documentation
+   signrank_documentation
    crosstab_documentation
    corr_case_documentation
    corr_pair_documentation
