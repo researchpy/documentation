@@ -48,7 +48,7 @@ By default, this method will return the measures of :math:`R^2`, :math:`\text{Ad
 note that for the factor terms the reported :math:`\eta^2` and :math:`\omega^2` will be partial, i.e. :math:`\eta^2_p` and :math:`\omega^2_p` respectively.
 Additionally, :math:`R^2` and :math:`\eta^2` are the same but have different names due to coming from different frameworks
 which uses different terminology. Formulas for how to calculate these effect sizes
-comes from :cite:`grissomkim2012`.
+comes from :footcite:p:`grissomkim2012`.
 
 Eta-squared (:math:`\eta^2`) and :math:`R^2`
 """"""""""""""""""""""""""""""""""""""""""""
@@ -192,5 +192,7 @@ If it's of interest, one can also access the underlying regression table.
 
 References
 ==========
-.. bibliography:: refs.bib
+.. footbibliography:: refs.bib
+
+  :cited:
   :list: bullet

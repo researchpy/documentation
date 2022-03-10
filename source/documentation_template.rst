@@ -679,6 +679,6 @@ Wilcoxon Signed-Rank Test
 
 References
 ----------
-.. bibliography:: refs.bib
+.. footbibliography:: refs.bib
    :cited:
    :list: bullet

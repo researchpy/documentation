@@ -21,8 +21,8 @@ Input
 
 * **dataframe** can either be a single Pandas Series or multiple Series/an
   entire DataFrame.
-* **method** takes the values of "pearson" :cite:`scipy_pearsonr` (the default if nothing is passed),
-  "spearman" :cite:`scipy_spearmanr`, or "kendall" :cite:`scipy_kendalltau`.
+* **method** takes the values of "pearson" :footcite:p:`scipy_pearsonr` (the default if nothing is passed),
+  "spearman" :footcite:p:`scipy_spearmanr`, or "kendall" :footcite:p:`scipy_kendalltau`.
 
 ..  scipy.stats methods used in corr_case()
 .. ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -178,6 +178,6 @@ Pearson r
 
 References
 ----------
-.. bibliography:: refs.bib
+.. footbibliography:: refs.bib
    :cited:
    :list: bullet

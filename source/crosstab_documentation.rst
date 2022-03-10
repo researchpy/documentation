@@ -30,12 +30,12 @@ correction = None, cramer_correction = None, exact = False, expected_freqs= Fals
     will calculate the cell percentage based on the entire sample
   * **test**, can take "chi-square", "g-test", "mcnemar", or "fisher".
 
-      * If "chi-square", the chi-square (:math:`\chi^2`) test of independence :cite:`scipy_chi2` will
+      * If "chi-square", the chi-square (:math:`\chi^2`) test of independence :footcite:p:`scipy_chi2` will
         be calculated and returned in a second DataFrame.
-      * If "g-test", will conduct the G-test (likelihood-ratio :math:`\chi^2`) :cite:`scipy_chi2` and
+      * If "g-test", will conduct the G-test (likelihood-ratio :math:`\chi^2`) :footcite:p:`scipy_chi2` and
         the results will be returned in a second DataFrame.
-      * If "fisher", will conduct Fisher's exact test :cite:`scipy_fisher`.
-      * If "mcnemar", will conduct the McNemar :math:`\chi^2` :cite:`statsmodels_mcnemar` test for paired
+      * If "fisher", will conduct Fisher's exact test :footcite:p:`scipy_fisher`.
+      * If "mcnemar", will conduct the McNemar :math:`\chi^2` :footcite:p:`statsmodels_mcnemar` test for paired
         nominal data.
 
   * **margins**, if False will return a crosstabulation table without the total
@@ -80,7 +80,7 @@ Effect Size Measures Formulas
 Cramer's Phi (2x2 table)
 ------------------------
 For analyses were it's a 2x2 table, the following formula is used to
-calculate Cramer's Phi (:math:`\phi`) :cite:`cramer2016`:
+calculate Cramer's Phi (:math:`\phi`) :footcite:p:`cramer2016`:
 
 .. math::
   \phi = \sqrt{\frac{\chi^2}{N}}
@@ -92,7 +92,7 @@ Where N = total number of observations in the analysis
 Cramer's V (RxC where R or C > 2)
 ---------------------------------
 For analyses were it's a table that is larger than a 2x2, the
-following formula is used to calculate Cramer's V :cite:`cramer2016`:
+following formula is used to calculate Cramer's V :footcite:p:`cramer2016`:
 
 .. math::
   V = \sqrt{\frac{\chi^2}{(N*(k - 1))}}
@@ -883,6 +883,6 @@ Make sure that the outcomes are labelled the same in both variables.
 
 References
 ==========
-.. bibliography:: refs.bib
+.. footbibliography:: refs.bib
    :list: bullet
    :cited:
