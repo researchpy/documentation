@@ -20,7 +20,7 @@ This method can perform the following tests:
 
       * `psudo-code: ttest(group1, group2, equal_variances = False, paired = False)`
 
-  * Wilcoxon ranked-sign test :cite:p:`scipy_wilcoxon`
+  * Wilcoxon signed-rank test :cite:p:`scipy_wilcoxon`
 
       * `psudo-code: ttest(group1, group2, equal_variances = False, paired = True)`
 
@@ -41,14 +41,10 @@ Input
 -----
 **ttest(group1, group2, group1_name= None, group2_name= None, equal_variances= True, paired= False, wilcox_parameters = {"zero_method" : "pratt", "correction" : False, "mode" : "auto"}, welch_dof = "satterthwaite")**
 
-  * **group1** and **group2** : requires the data to be a Pandas Series
-  * **group1_name** and **group2_name** : will override the series name
-  * **equal_variances** : tells whether equal variances is assumed or not.
-      If not, Welch's t-test is used if data is unpaired, or Wilcoxon
-      rank-signed test is used if data is paired. The default is True.
-  * **paired** : tells whether the data is paired. If data is paired and equal
-      variance is assumed, a paired sample t-test is conducted, otherwise a Wilcoxon
-      ranked-sign test is conducted. The default is False.
+  * **group1** and **group2** : Requires the data to be a Pandas Series.
+  * **group1_name** and **group2_name** : Will override the series name.
+  * **equal_variances** : Tells whether equal variances is assumed or not. If equal variances are not assumed and the data is unpaired, then the Welch's t-test will be conducted using Satterthwaite or Welch degrees of freedom (default is Satterthwaite).
+  * **paired** : Tells whether the data are paired. If the data is paired and equal variances are assumed then a paired sample t-test will be conducted. If the data is paired and equal variances are not assumed then a Wilcoxon signed-rank test will be conducted.
   * **wilcox_parameters** : A dictionary which contains the testing specifications for the Wilcoxon signed-rank test.
   * **welch_dof** : A string to indicate which calculation is to be used when calculating the degrees of freedom. Can either be "welch" or "satterthwaite" (default).
 

@@ -1,5 +1,9 @@
+*****************
 difference_test()
-=================
+*****************
+
+Description
+============
 Conducts a few different statistical tests which test for a difference between
 independent or related samples with or without equal variances and has the ability
 to calculate the effect size of the observed difference. The data is
@@ -22,21 +26,26 @@ This method can perform the following tests:
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = True)`
 
-  * Wilcoxon ranked-sign test :cite:`2018:scipy_wilcoxon`
+  * Wilcoxon signed-rank test :cite:`2018:scipy_wilcoxon`
 
       * By default, discards all zero-differences; this is known as the 'wilcox' method.
       * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = False)`
 
-2 objects will be returned for all available tests; the first object will be a
+2 objects will be returned for all available tests except for the Wilcoxon signed-rank test; the first object will be a
 descriptive summary table and the second will be the testing result information which
 will include the effect size measures if indicated.
 
+For the Wilcoxon signed-rank test, 3 objects will be returned. The first object
+provides descriptive information regarding the ranks, the second object contains the adjustment information,
+and the third object contains the test results.
 
 
 
+Parameters
+==========
 
-Arguments
------------------
+Input
+-----
 **difference_test(formula_like, data = {}, conf_level = 0.95, equal_variances = True, independent_samples = True, wilcox_parameters = {"zero_method" : "wilcox", "correction" : False, "mode" : "auto"}, welch_dof = "satterthwaite", **keywords)**
 
   * **formula_like**: A valid `formula <https://patsy.readthedocs.io/en/latest/formulas.html>`_ ; for example, "DV ~ IV".
@@ -47,14 +56,24 @@ Arguments
   * **wilcox_parameters**: A dictionary with optional methods for calculating the Wilcoxon signed-rank test. For more information, see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`_.
   * **welch_dof** : A string which indicates how to calculate the degrees of freedom for the Welch's t-test; options are "satterthwaite" (default) and "welch".
 
-**conduct(return_type = "Dataframe", effect_size = None)**
 
-  * **return_type**: Specify if the results should be returned as a Pandas DataFrame (default) or a Python dictionary (= 'Dictionary').
-  * **effect_size**: Specify if effect sizes should be calculated, default value is None.
-    * Available options are: None, "Cohen's D", "Hedge's G", "Glass's delta1", "Glass's delta2", "r", and/or "all".
+Returns
+-------
+Returns an object with class "difference_test"; this object has accessible methods which are described below.
+
+difference_test methods
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* **conduct(return_type = "Dataframe", effect_size = None, decimals = 4)**
+
+    * **return_type**: Specify if the results should be returned as a Pandas DataFrame (default) or a Python dictionary (= 'Dictionary').
+    * **effect_size**: Specify if effect sizes should be calculated, default value is None.
+      * Available options are: None, "Cohen's D", "Hedge's G", "Glass's delta1", "Glass's delta2", "r", and/or "all".
       * User can specify any combination of effect sizes, or use "all" which will calculate all effect sizes.
       * Only effect size "r" is supported for the Wilcoxon ranked-sign test.
+    * **decimals** : The number of decimal places the data should be rounded too.
 
+    :note: If
 
 
 
