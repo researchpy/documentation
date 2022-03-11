@@ -97,8 +97,9 @@ called 'fuel'.
 
 .. raw:: html
 
+  <div style="overflow-x: auto;">
   <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>mpg1</th>      <th>mpg2</th>      <th>id</th>    </tr>  </thead>  <tbody>    <tr>      <td>20.0000</td>      <td>24.0000</td>      <td>1</td>    </tr>    <tr>      <td>23.0000</td>      <td>25.0000</td>      <td>2</td>    </tr>    <tr>      <td>21.0000</td>      <td>21.0000</td>      <td>3</td>    </tr>    <tr>      <td>25.0000</td>      <td>22.0000</td>      <td>4</td>    </tr>    <tr>      <td>18.0000</td>      <td>23.0000</td>      <td>5</td>    </tr>  </tbody></table>
-
+  </div>
 
 The data is currently in a wide structure where each column, mpg1 and mpg2, represent a value for the same ID. This format
 is supported by signrank. The long format structure is also supported using the *formula_like* approach, in order to have
@@ -114,8 +115,9 @@ the data ready for this demonstration section the transformation will be conduct
 
 .. raw:: html
 
+  <div  style="overflow-x: auto;">
   <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>id</th>      <th>mpg</th>      <th>value</th>    </tr>  </thead>  <tbody>    <tr>      <td>1</td>      <td>mpg1</td>      <td>20.0000</td>    </tr>    <tr>      <td>2</td>      <td>mpg1</td>      <td>23.0000</td>    </tr>    <tr>      <td>3</td>      <td>mpg1</td>      <td>21.0000</td>    </tr>    <tr>      <td>4</td>      <td>mpg1</td>      <td>25.0000</td>    </tr>    <tr>      <td>5</td>      <td>mpg1</td>      <td>18.0000</td>    </tr>  </tbody></table>
-
+  </div>
 
 
 Signrank using Wide Structured Datasets
@@ -131,11 +133,17 @@ it makes the output look cleaner.
 
 .. raw:: html
 
+  <div  style="overflow-x: auto;">
   <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>sign</th>      <th>obs</th>      <th>sum ranks</th>      <th>expected</th>    </tr>  </thead>  <tbody>    <tr>      <td>positive</td>      <td>3</td>      <td>13.5000</td>      <td>38.5000</td>    </tr>    <tr>      <td>negative</td>      <td>8</td>      <td>63.5000</td>      <td>38.5000</td>    </tr>    <tr>      <td>zero</td>      <td>1</td>      <td>1.0000</td>      <td>1.0000</td>    </tr>    <tr>      <td>all</td>      <td>12</td>      <td>78.0000</td>      <td>78.0000</td>    </tr>  </tbody></table>
+  </div>
 
+  <div style="overflow-x: auto;">
   <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>unadjusted variance</th>      <th>adjustment for ties</th>      <th>adjustment for zeros</th>      <th>adjusted variance</th>    </tr>  </thead>  <tbody>    <tr>      <td>162.5000</td>      <td>-1.6250</td>      <td>-0.2500</td>      <td>160.6250</td>    </tr>  </tbody></table>
+  </div>
 
+  <div  style="overflow-x: auto;">
   <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>z</th>      <th>w</th>      <th>pval</th>    </tr>  </thead>  <tbody>    <tr>      <td>-1.9726</td>      <td>13.5000</td>      <td>0.0485</td>    </tr>  </tbody></table>
+  </div>
 
 
 If one does not assign each object to a variable, the output is still readable.
@@ -169,12 +177,17 @@ Signrank using Long Structured Datasets
 
 .. raw:: html
 
+       <div style="overflow-x: auto;">
        <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>sign</th>      <th>obs</th>      <th>sum ranks</th>      <th>expected</th>    </tr>  </thead>  <tbody>    <tr>      <td>positive</td>      <td>3</td>      <td>13.5000</td>      <td>38.5000</td>    </tr>    <tr>      <td>negative</td>      <td>8</td>      <td>63.5000</td>      <td>38.5000</td>    </tr>    <tr>      <td>zero</td>      <td>1</td>      <td>1.0000</td>      <td>1.0000</td>    </tr>    <tr>      <td>all</td>      <td>12</td>      <td>78.0000</td>      <td>78.0000</td>    </tr>  </tbody></table>
+       </div>
 
+       <div style="overflow-x: auto;">
        <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>unadjusted variance</th>      <th>adjustment for ties</th>      <th>adjustment for zeros</th>      <th>adjusted variance</th>    </tr>  </thead>  <tbody>    <tr>      <td>162.5000</td>      <td>-1.6250</td>      <td>-0.2500</td>      <td>160.6250</td>    </tr>  </tbody></table>
+       </div>
 
+       <div style="overflow-x: auto;">
        <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>z</th>      <th>w</th>      <th>pval</th>    </tr>  </thead>  <tbody>    <tr>      <td>-1.9726</td>      <td>13.5000</td>      <td>0.0485</td>    </tr>  </tbody></table>
-
+       </div>
 
 
 

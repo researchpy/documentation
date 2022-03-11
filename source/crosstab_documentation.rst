@@ -129,7 +129,7 @@ Loading Packages and Data
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -188,7 +188,7 @@ Crosstabulation with Frequency
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr>
@@ -256,7 +256,7 @@ For example, the cell proportion for :math:`\text{disease}_0` and :math:`\text{a
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr>
@@ -321,7 +321,7 @@ Crosstabulation with Row Percentages
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr>
@@ -387,7 +387,7 @@ Crosstabulation with Column Percentages
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr>
@@ -483,7 +483,7 @@ Chi Squared (:math:`\chi^2`) Test of Independence
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr>
@@ -546,7 +546,7 @@ Chi Squared (:math:`\chi^2`) Test of Independence
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -587,7 +587,7 @@ Chi Squared (:math:`\chi^2`) Test of Independence
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr>
@@ -640,7 +640,7 @@ G-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -686,7 +686,7 @@ Fisher's Exact test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr>
@@ -737,7 +737,7 @@ Fisher's Exact test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -794,7 +794,7 @@ Make sure that the outcomes are labelled the same in both variables.
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr>
@@ -845,7 +845,7 @@ Make sure that the outcomes are labelled the same in both variables.
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">

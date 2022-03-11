@@ -218,7 +218,7 @@ Independent t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -275,7 +275,7 @@ Independent t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -352,7 +352,7 @@ Paired Sample t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -409,7 +409,7 @@ Paired Sample t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -486,7 +486,7 @@ Welch's t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -543,7 +543,7 @@ Welch's t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -618,7 +618,7 @@ Wilcoxon Signed-Rank Test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">

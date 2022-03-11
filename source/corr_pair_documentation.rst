@@ -61,7 +61,7 @@ Pearson r
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -123,7 +123,7 @@ Pearson r
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">

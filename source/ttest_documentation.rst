@@ -241,7 +241,7 @@ Independent t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -298,7 +298,7 @@ Independent t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -375,7 +375,7 @@ Paired Sample t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -432,7 +432,7 @@ Paired Sample t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -509,7 +509,7 @@ Welch's t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -566,7 +566,7 @@ Welch's t-test
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -641,10 +641,13 @@ Wilcoxon Signed-Rank Test
 
 .. raw:: html
 
+    <div style="overflow-x: auto;">
     <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>sign</th>      <th>obs</th>      <th>sum ranks</th>      <th>expected</th>    </tr>  </thead>  <tbody>    <tr>      <td>positive</td>      <td>52</td>      <td>2,804.5000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>negative</td>      <td>39</td>      <td>2,200.5000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>zero</td>      <td>9</td>      <td>45.0000</td>      <td>45.0000</td>    </tr>    <tr>      <td>all</td>      <td>100</td>      <td>5,050.0000</td>      <td>5,050.0000</td>    </tr>  </tbody></table>
+    </div>
 
+    <div style="overflow-x: auto;">
     <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>Wilcoxon signed-rank test</th>      <th>results</th>    </tr>  </thead>  <tbody>    <tr>      <td>Mean for healthy =</td>      <td>4.5900</td>    </tr>    <tr>      <td>Mean for non-healthy =</td>      <td>4.1600</td>    </tr>    <tr>      <td>W value =</td>      <td>2,200.5000</td>    </tr>    <tr>      <td>Z value =</td>      <td>1.0411</td>    </tr>    <tr>      <td>p value =</td>      <td>0.2978</td>    </tr>    <tr>      <td>Rank-Biserial r =</td>      <td>0.1196</td>    </tr>    <tr>      <td>Pearson r =</td>      <td>0.1041</td>    </tr>  </tbody></table>
-
+    </div>
 
 
 

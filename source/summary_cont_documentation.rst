@@ -48,7 +48,7 @@ Examples
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -86,7 +86,7 @@ Examples
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -144,7 +144,7 @@ Examples
 
 .. raw:: html
 
-    <div>
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -198,7 +198,7 @@ Examples
 
 .. raw:: html
 
-    <div style="overflow-x:auto;">
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr>
@@ -318,7 +318,7 @@ Examples
 
 .. raw:: html
 
-    <div style="overflow-x:auto;">
+    <div style="overflow-x: auto;">
     <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
