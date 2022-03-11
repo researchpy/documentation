@@ -51,7 +51,7 @@ which uses different terminology. Formulas for how to calculate these effect siz
 comes from :footcite:p:`grissomkim2012`.
 
 Eta-squared (:math:`\eta^2`) and :math:`R^2`
-""""""""""""""""""""""""""""""""""""""""""""""
+----------------------------------------------
 
 .. math::
 
@@ -59,7 +59,7 @@ Eta-squared (:math:`\eta^2`) and :math:`R^2`
 
 
 Adjusted :math:`R^2`
-""""""""""""""""""""""
+---------------------
 
 .. math::
 
@@ -68,7 +68,7 @@ Adjusted :math:`R^2`
 
 
 Partial Eta-squared (:math:`\eta^2_p`)
-""""""""""""""""""""""""""""""""""""""""
+-----------------------------------------
 
 .. math::
 
@@ -76,7 +76,7 @@ Partial Eta-squared (:math:`\eta^2_p`)
 
 
 Omega-squared (:math:`\omega^2`)
-"""""""""""""""""""""""""""""""""""
+-----------------------------------
 
 .. math::
 
@@ -84,7 +84,7 @@ Omega-squared (:math:`\omega^2`)
 
 
 Partial Omega-squared (:math:`\omega^2_p`)
-"""""""""""""""""""""""""""""""""""""""""""""
+----------------------------------------------
 
 .. math::
 

@@ -57,16 +57,17 @@ signrank methods
 
 Effect size measures formulas
 =============================
-By default no effect size measures are calculated; Rank-Biserial r calculation is from :footcite:p:`Kerby2012` while the Pearson r calculation is from
+By default no effect size measures are calculated; Rank-Biserial r calculation is
+from Kerby (2012) :footcite:p:`Kerby2012` while the Pearson r calculation is from Fritz, Morris, and Richler (2012) :footcite:p:`Fritz_Morris_Richler2012`
 
-Rank-Biserial r :footcite:p:`Kerby2012`
-""""""""""""""""""""""""""""""""""""""""""""""""
+Rank-Biserial r
+------------------
 .. math::
 
   \text{Rank-Biserial r = } \frac{\sum{Ranks}_{+} - \sum{Ranks}_{-}}{\sum{Ranks}_{total}}
 
-Pearson r :footcite:p:`Fritz_Morris_Richler2012`
-""""""""""""""""""""""""""""""""""""""""""""""""""
+Pearson r
+------------
 .. math::
 
   \text{Pearson r = } \frac{Z}{\sqrt{N}}
