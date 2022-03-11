@@ -119,6 +119,6 @@ srq   0.9775  0.0000
 
 
 References
-----------
+===========
+
 .. footbibliography::
-   :list: bullet

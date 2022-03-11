@@ -177,6 +177,6 @@ Pearson r
 
 
 References
-----------
+==========
+
 .. footbibliography::
-   :list: bullet

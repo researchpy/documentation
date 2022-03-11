@@ -678,6 +678,6 @@ Wilcoxon Signed-Rank Test
 
 
 References
-----------
+===========
+
 .. footbibliography::
-   :list: bullet
