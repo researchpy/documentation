@@ -130,7 +130,7 @@ Loading Packages and Data
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -189,7 +189,7 @@ Crosstabulation with Frequency
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr>
           <th></th>
@@ -257,7 +257,7 @@ For example, the cell proportion for :math:`\text{disease}_0` and :math:`\text{a
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr>
           <th></th>
@@ -322,7 +322,7 @@ Crosstabulation with Row Percentages
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr>
           <th></th>
@@ -388,7 +388,7 @@ Crosstabulation with Column Percentages
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr>
           <th></th>
@@ -484,7 +484,7 @@ Chi Squared (:math:`\chi^2`) Test of Independence
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr>
           <th></th>
@@ -547,7 +547,7 @@ Chi Squared (:math:`\chi^2`) Test of Independence
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -588,7 +588,7 @@ Chi Squared (:math:`\chi^2`) Test of Independence
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr>
           <th></th>
@@ -641,7 +641,7 @@ G-test
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -687,7 +687,7 @@ Fisher's Exact test
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr>
           <th></th>
@@ -738,7 +738,7 @@ Fisher's Exact test
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -795,7 +795,7 @@ Make sure that the outcomes are labelled the same in both variables.
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr>
           <th></th>
@@ -846,7 +846,7 @@ Make sure that the outcomes are labelled the same in both variables.
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>

@@ -62,7 +62,7 @@ Pearson r
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -124,7 +124,7 @@ Pearson r
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>

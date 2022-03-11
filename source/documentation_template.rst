@@ -219,7 +219,7 @@ Independent t-test
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -276,7 +276,7 @@ Independent t-test
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -353,7 +353,7 @@ Paired Sample t-test
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -410,7 +410,7 @@ Paired Sample t-test
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -487,7 +487,7 @@ Welch's t-test
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -544,7 +544,7 @@ Welch's t-test
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -619,7 +619,7 @@ Wilcoxon Signed-Rank Test
 .. raw:: html
 
     <div>
-    <table border="1" class="dataframe">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>

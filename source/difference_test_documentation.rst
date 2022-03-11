@@ -463,11 +463,11 @@ Wilcoxon signed-rank Test
 
 .. raw:: html
 
-    <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>sign</th>      <th>obs</th>      <th>sum ranks</th>      <th>expected</th>    </tr>  </thead>  <tbody>    <tr>      <td>positive</td>      <td>40</td>      <td>2,298.0000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>negative</td>      <td>51</td>      <td>2,707.0000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>zero</td>      <td>9</td>      <td>45.0000</td>      <td>45.0000</td>    </tr>    <tr>      <td>all</td>      <td>100</td>      <td>5,050.0000</td>      <td>5,050.0000</td>    </tr>  </tbody></table>
+    <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>sign</th>      <th>obs</th>      <th>sum ranks</th>      <th>expected</th>    </tr>  </thead>  <tbody>    <tr>      <td>positive</td>      <td>40</td>      <td>2,298.0000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>negative</td>      <td>51</td>      <td>2,707.0000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>zero</td>      <td>9</td>      <td>45.0000</td>      <td>45.0000</td>    </tr>    <tr>      <td>all</td>      <td>100</td>      <td>5,050.0000</td>      <td>5,050.0000</td>    </tr>  </tbody></table>
 
-    <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>unadjusted variance</th>      <th>adjustment for ties</th>      <th>adjustment for zeros</th>      <th>adjusted variance</th>    </tr>  </thead>  <tbody>    <tr>      <td>84,587.5000</td>      <td>-375.1250</td>      <td>-71.2500</td>      <td>84,141.1250</td>    </tr>  </tbody></table>
+    <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>unadjusted variance</th>      <th>adjustment for ties</th>      <th>adjustment for zeros</th>      <th>adjusted variance</th>    </tr>  </thead>  <tbody>    <tr>      <td>84,587.5000</td>      <td>-375.1250</td>      <td>-71.2500</td>      <td>84,141.1250</td>    </tr>  </tbody></table>
 
-    <table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th>z</th>      <th>w</th>      <th>pval</th>    </tr>  </thead>  <tbody>    <tr>      <td>-0.7050</td>      <td>2,298.0000</td>      <td>0.4808</td>    </tr>  </tbody></table>
+    <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>z</th>      <th>w</th>      <th>pval</th>    </tr>  </thead>  <tbody>    <tr>      <td>-0.7050</td>      <td>2,298.0000</td>      <td>0.4808</td>    </tr>  </tbody></table>
 
 
 
