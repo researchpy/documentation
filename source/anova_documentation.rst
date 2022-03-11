@@ -51,32 +51,41 @@ which uses different terminology. Formulas for how to calculate these effect siz
 comes from :footcite:p:`grissomkim2012`.
 
 Eta-squared (:math:`\eta^2`) and :math:`R^2`
-""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""
+
 .. math::
 
   \eta^2 = \frac{\text{SS}_{model}}{\text{SS}_{total}}
 
+
 Adjusted :math:`R^2`
-""""""""""""""""""""
+""""""""""""""""""""""
+
 .. math::
 
   \text{Adj. }R^2 = 1 - \frac{\text{df}_{total}}{\text{df}_{error}} * \frac{\text{SS}_{error}}{\text{SS}_{total}}
 
+
+
 Partial Eta-squared (:math:`\eta^2_p`)
-""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""
+
 .. math::
 
   \eta^2_p = \frac{\text{SS}_{effect}}{\text{SS}_{effect} + \text{SS}_{error}}
 
 
 Omega-squared (:math:`\omega^2`)
-"""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""
+
 .. math::
 
   \omega^2 = \frac{\text{SS}_{effect} - (\text{df}_{effect} * \text{MS}_{error})}{\text{SS}_{total} + \text{MS}_{error}}
 
+
 Partial Omega-squared (:math:`\omega^2_p`)
-"""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""
+
 .. math::
 
   \omega^2_p = \frac{\text{SS}_{effect} - (\text{df}_{effect} * \text{MS}_{error})}{\text{SS}_{effect} + (\text{N} - \text{df}_{effect}) * \text{MS}_{error}}
