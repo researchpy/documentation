@@ -129,7 +129,7 @@ Effect Size Measures Formulas
 =============================
 
 Cohen's d\ :sub:`s` (between subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""
+-----------------------------------------------
 Cohen's d\ :sub:`s` :footcite:p:`cohen1988` for a between groups design is calculated
 with the following equation:
 
@@ -142,7 +142,7 @@ with the following equation:
 
 
 Cohen's d\ :sub:`av` (within subject design)
-"""""""""""""""""""""""""""""""""""""""""""
+----------------------------------------------
 Another version of Cohen's d is used in within subject designs. This is noted
 by the subscript "av". The formula for Cohen's d\ :sub:`av` :footcite:p:`lakens2013` is
 as follows:
@@ -156,7 +156,7 @@ as follows:
 
 
 Hedges's g\ :sub:`s` (between subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""""
+------------------------------------------------
 Cohen's d\ :sub:`s` gives a biased estimate of the effect size for a population
 and Hedges and Olkin :footcite:p:`hedges1985` provides an unbiased estimation. The
 differences between Hedges's g and Cohen's d is negligible when sample sizes
@@ -172,7 +172,7 @@ Hedge's g\ :sub:`s` is calculated using the following formula:
 
 
 Hedges's g\ :sub:`av` (within subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""""
+--------------------------------------------------
 Cohen's d\ :sub:`av` gives a biased estimate of the effect size for a population
 and Hedges and Olkin :footcite:p:`hedges1985` provides a correction to be applied to provide an unbiased estimate.
 Hedge's g\ :sub:`av` is calculated using the following formula :footcite:p:`lakens2013` :
@@ -184,7 +184,7 @@ Hedge's g\ :sub:`av` is calculated using the following formula :footcite:p:`lake
 
 
 Glass's :math:`\Delta` (between or within subjects design)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+------------------------------------------------------------
 Glass's :math:`\Delta` is the mean differences between the two groups divided by
 the standard deviation of the first condition/group or by the second condition/group.
 When used in a within subjects design, it is recommended to use the pre- standard
@@ -199,7 +199,7 @@ to calculate Glass's :math:`\Delta`:
 
 
 Pearson correlation coefficient r (between or within subjects design)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+------------------------------------------------------------------------
 Rosenthal :footcite:p:`rosenthal1991` provided the following formula to calculate
 the Pearson correlation coefficient r using the t-value and degrees of freedom:
 
@@ -218,7 +218,7 @@ that N is the total number of observations.
 
 
 Rank-Biserial correlation coefficient r (between or within subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+--------------------------------------------------------------------------------
 The following formula is used to calculate the Rank-Biserial
 correlation coefficient r :footcite:p:`Kerby2012` for the Wilcoxon ranked-sign test.
 
