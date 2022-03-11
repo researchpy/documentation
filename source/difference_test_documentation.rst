@@ -474,5 +474,5 @@ Wilcoxon signed-rank Test
 
 References
 ==========
-.. footbibliography:: refs.bib
+.. footbibliography::
    :list: bullet

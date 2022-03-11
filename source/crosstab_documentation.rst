@@ -883,5 +883,5 @@ Make sure that the outcomes are labelled the same in both variables.
 
 References
 ==========
-.. footbibliography:: refs.bib
+.. footbibliography::
    :list: bullet

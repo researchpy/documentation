@@ -180,5 +180,5 @@ Signrank using Long Structured Datasets
 
 References
 ==========
-.. footbibliography:: refs.bib
+.. footbibliography::
   :list: bullet
