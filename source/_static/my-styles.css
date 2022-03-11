@@ -17,23 +17,24 @@
 
 */
 
+
 <style>
-table, td, th {
+.dataframe table, td, th {
     border: 2px solid #000000;
 }
 
-table {
+.dataframe table {
     border-collapse: collapse;
     width: 100%;
 }
 
-th {
+.dataframe th {
 	text-align: center;
   padding: 8px;
   bgcolor = #C17278
 }
 
-td {
+.dataframe td {
     text-align: center;
     padding: 8px;
 }
