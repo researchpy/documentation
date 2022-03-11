@@ -30,7 +30,7 @@ th, td {
   text-align: center;
 }
 
-.dataframe thead, tbody {
+thead.dataframe, tbody.dataframe {
 	border-bottom: 2px solid #ddd;
 	border-top: 2px solid #ddd;
 }
