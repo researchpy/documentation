@@ -47,5 +47,6 @@ streamlined during this process. For an example, see the new -difference_test- m
    corr_case_documentation
    corr_pair_documentation
    anova_documentation
+   predict.documentation
    install
    thanks
