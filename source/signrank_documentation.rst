@@ -26,10 +26,13 @@ Input
   * **group1** : The array like object which contains data for the paired-sample.
   * **group2** : The array like object which contains data for the paired-sample.
   * **zero_method** : How to handle the zero-differences in the ranking process. Available options are (see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`_):
+
     * *"pratt"* : Includes zero-differences in the ranking process, but drops the ranks of the zeros (default).
     * *"wilcox"* : Discards all zero-differences.
+
   * **correction** : Boolean value indicating if the continuity correction should be applied; see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`_ for more information.
   * **mode** : Method to calculate the p-value, see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`_ for more information. Options are:
+
     * *"auto"* : Use the exact distribution if there are no more than 25 observations and no ties, otherwise a normal approximation will be used (default).
     * *"exact"* : Use the exact distribution, can be used if there are no more than 25 observations and no ties.
     * *"approx"* : Use a normal approximation.
