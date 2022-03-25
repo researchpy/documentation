@@ -1,3 +1,5 @@
+.. _predict:
+
 ************************
 predict()
 ************************
@@ -13,7 +15,7 @@ Classes where predict included
   * ols
   * anova
 
-  
+
 
 Parameters
 ==========
@@ -25,11 +27,12 @@ Input
   * **mdl_data** : Class object from ols or anova
   * **estimate** : Desired estimate. Available options are:
 
-    * *"y"* or *"xb"* : Linear prediction
-    * *"residuals"*, *"res"*, or *"r"* : Residuals
-    * *"standardized_residuals"*, *"standardized_r"*, or *"r_std"* : Standardized residuals
-    * *"studentized_residuals"*, *"student_r"*, or *"r_stud"* : Studentized (jackknifed) residuals
-    * *"leverage"*, *"lev"* : Leverage of the observation (diagonal of the H matrix)
+
+      * *"y"* or *"xb"* : Linear prediction
+      * *"residuals"*, *"res"*, or *"r"* : Residuals
+      * *"standardized_residuals"*, *"standardized_r"*, or *"r_std"* : Standardized residuals
+      * *"studentized_residuals"*, *"student_r"*, or *"r_stud"* : Studentized (jackknifed) residuals
+      * *"leverage"*, *"lev"* : Leverage of the observation (diagonal of the H matrix)
 
 
 
@@ -144,9 +147,9 @@ Now let's get some quick information regarding the data set.
 
 
 
-  Now to take a look at the descriptive statistics of the univariate data. The output
-  indicates that there are no missing observations and that each variable is stored
-  as an integer.
+Now to take a look at the descriptive statistics of the univariate data. The output
+indicates that there are no missing observations and that each variable is stored
+as an integer.
 
 
 .. code:: python

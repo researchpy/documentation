@@ -40,6 +40,16 @@ anova methods
       * **decimals** : The number of decimal places the data should be rounded too.
       * **conf_level** : The confidence interval desired.
 
+  * **predict(estimate = None)** :ref:`predict`
+
+      * **estimate** : Desired estimate. Available options are:
+
+        * *"y"* or *"xb"* : Linear prediction
+        * *"residuals"*, *"res"*, or *"r"* : Residuals
+        * *"standardized_residuals"*, *"standardized_r"*, or *"r_std"* : Standardized residuals
+        * *"studentized_residuals"*, *"student_r"*, or *"r_stud"* : Studentized (jackknifed) residuals
+        * *"leverage"*, *"lev"* : Leverage of the observation (diagonal of the H matrix)
+
 
 
 Effect Size Measures Formulas

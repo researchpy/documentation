@@ -47,7 +47,11 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinxcontrib.bibtex',
+    'sphinx.ext.autosectionlabel',
 ]
+
+autosectionlabel_prefix_document = True
+
 bibtex_bibfiles = ['refs.bib']
 
 # Add any paths that contain templates here, relative to this directory.
