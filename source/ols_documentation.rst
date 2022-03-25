@@ -1,10 +1,10 @@
 *************
-anova()
+ols()
 *************
 
 Description
 ===========
-Performs the analysis-of-variance (ANOVA) and analysis-of-covariance (ANCOVA).
+Conducts linear regression using the ordinary least squares approach.
 
 
 
@@ -13,32 +13,28 @@ Parameters
 
 Input
 -----
-**anova(formula_like, data = {}, sum_of_squares = 3)**
+**ols(formula_like, data = {})**
 
   * **formula_like** : A valid formula which will parse the data into a design matrix.
   * **data** : The dataframe which contains the data to be analyzed.
-  * **sum_of_squares** : The type of sum of squares which is desired, the default is Type 3.
 
 
 Returns
 -------
-Returns an object with class "anova"; this object has accessible methods which are
+Returns an object with class "ols"; this object has accessible methods which are
 described below.
 
-anova methods
+ols methods
 ^^^^^^^^^^^^^
 
-  * **results(return_type = "Dataframe", decimals = 4, pretty_format = True)**
+  * **results(return_type = "Dataframe", decimals = 4, pretty_format = True, conf_level = 0.95)**
 
       * **return_type** : The type of data structure the results should be returned as. Supported options are 'Dataframe' which will return a Pandas DataFrame or 'Dictionary' which will return a dictionary.
       * **decimals** : The number of decimal places the data should be rounded too.
       * **pretty_format** : If pretty formatting should be applied. This adds extra empty spaces in the returned data structure for visualization of the results.
-
-  * **regression_table(return_type = "Dataframe", decimals = 4, conf_level = 0.95)**
-
-      * **return_type** : The type of data structure the results should be returned as. Supported options are 'Dataframe' which will return a Pandas DataFrame or 'Dictionary' which will return a dictionary.
-      * **decimals** : The number of decimal places the data should be rounded too.
       * **conf_level** : The confidence interval desired.
+
+  -results- will return 3 objects, (1) is summary information, (2) is model table, and (3) is the regression table.
 
   * **predict(estimate = None)**
 
@@ -56,8 +52,7 @@ anova methods
 
 Effect Size Measures Formulas
 =============================
-By default, this method will return the measures of :math:`R^2`, :math:`\text{Adj. }R^2`, :math:`\eta^2`, and :math:`\omega^2`;
-note that for the factor terms the reported :math:`\eta^2` and :math:`\omega^2` will be partial, i.e. :math:`\eta^2_p` and :math:`\omega^2_p` respectively.
+By default, this method will return the measures of :math:`R^2`, :math:`\text{Adj. }R^2`, :math:`\eta^2`, and :math:`\omega^2`.
 Additionally, :math:`R^2` and :math:`\eta^2` are the same but have different names due to coming from different frameworks
 which uses different terminology. Formulas for how to calculate these effect sizes
 comes from :footcite:p:`grissomkim2012`.
@@ -79,14 +74,6 @@ Adjusted :math:`R^2`
 
 
 
-Partial Eta-squared (:math:`\eta^2_p`)
------------------------------------------
-
-.. math::
-
-  \eta^2_p = \frac{\text{SS}_{effect}}{\text{SS}_{effect} + \text{SS}_{error}}
-
-
 Omega-squared (:math:`\omega^2`)
 -----------------------------------
 
@@ -94,15 +81,6 @@ Omega-squared (:math:`\omega^2`)
 
   \omega^2 = \frac{\text{SS}_{effect} - (\text{df}_{effect} * \text{MS}_{error})}{\text{SS}_{total} + \text{MS}_{error}}
 
-
-Partial Omega-squared (:math:`\omega^2_p`)
-----------------------------------------------
-
-.. math::
-
-  \omega^2_p = \frac{\text{SS}_{effect} - (\text{df}_{effect} * \text{MS}_{error})}{\text{SS}_{effect} + (\text{N} - \text{df}_{effect}) * \text{MS}_{error}}
-
-Where N is the total number of observations included in the model.
 
 
 
@@ -187,17 +165,20 @@ approach will be shown in this example.
 
 .. code:: python
 
-  m = anova("systolic ~ C(drug) + C(disease) + C(drug):C(disease)", data = systolic, sum_of_squares = 3)
+  m = ols("systolic ~ C(drug) + C(disease) + C(drug):C(disease)", data = systolic)
 
-   desc, table = m.results()
-   print(desc, table, sep = "\n"*2)
+   desc, mod, table = m.results()
+   print(desc, mod, table, sep = "\n"*2)
 
 .. raw:: html
 
-  <p>Note: Effect size values for factors are partial.</p>
-
   <div style="overflow-x: auto;">
   <table><thead>    <tr style="text-align: right;">    </tr>  </thead>  <tbody>    <tr>     <th>Number of obs =</th>      <td>58.0000</td>    </tr>    <tr>      <th>Root MSE =</th>      <td>10.5096</td>    </tr>    <tr>      <th>R-squared =</th>      <td>0.4560</td>    </tr>    <tr>      <th>Adj R-squared =</th>      <td>0.3259</td>    </tr>  </tbody></table>
+  </div>
+
+  <div style="overflow-x: auto;">
+  <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>Source</th>      <th>Sum of Squares</th>      <th>Degrees of Freedom</th>      <th>Mean Squares</th>      <th>F value</th>      <th>p-value</th>      <th>Eta squared</th>      <th>Omega squared</th>    </tr>  </thead>  <tbody>    <tr>      <td>Model</td>      <td>4259.3385</td>      <td>11</td>      <td>387.2126</td>      <td>3.5057</td>      <td>0.0013</td>      <td>0.456</td>      <td>0.3221</td>    </tr>    <tr>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>Residual</td>      <td>5080.8167</td>      <td>46</td>      <td>110.4525</td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>Total</td>      <td>9340.1552</td>      <td>57</td>      <td>163.8624</td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>  </tbody>
+  </table>
   </div>
 
   <div style="overflow-x: auto;">
