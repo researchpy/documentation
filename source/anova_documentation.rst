@@ -56,11 +56,14 @@ anova methods
 
 Effect Size Measures Formulas
 =============================
-By default, this method will return the measures of :math:`R^2`, :math:`\text{Adj. }R^2`, :math:`\eta^2`, and :math:`\omega^2`;
-note that for the factor terms the reported :math:`\eta^2` and :math:`\omega^2` will be partial, i.e. :math:`\eta^2_p` and :math:`\omega^2_p` respectively.
+By default, this method will return the measures of :math:`R^2`, :math:`\text{Adj. }R^2`, :math:`\eta^2`, :math:`\epsilon^2`, and :math:`\omega^2`. Please
+note that for the factor terms, the reported effect sizes are partial, i.e., :math:`\eta^2_p`, :math:`\epsilon^2_p`, and :math:`\omega^2_p` respectively.
+See Olejnik and Aligna (2000) :footcite:p:`Olejnik&Algina2000`, Kelley and Preacher (2012) :footcite:p:`Kelly&Preacher2012`, and/or Grissom and Kim (2012) :footcite:p:`Grissom&Kim2012`
+
+
 Additionally, :math:`R^2` and :math:`\eta^2` are the same but have different names due to coming from different frameworks
 which uses different terminology. Formulas for how to calculate these effect sizes
-comes from :footcite:p:`grissomkim2012`.
+comes from (Olejnik & Aligna, 2000) :footcite:p:`Olejnik2000`; see
 
 Eta-squared (:math:`\eta^2`) and :math:`R^2`
 ----------------------------------------------
