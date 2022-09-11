@@ -17,26 +17,22 @@
 
 */
 
-<style>
-table, td, th {
-    border: 2px solid #000000;
-}
 
-table {
+<style>
+
+table.dataframe {
     border-collapse: collapse;
     width: 100%;
 }
 
-th {
-	text-align: center;
+th, td {
   padding: 8px;
-  bgcolor = #C17278
+  text-align: center;
 }
 
-td {
-    text-align: center;
-    padding: 8px;
+thead.dataframe, tbody.dataframe {
+	border-bottom: 2px solid #ddd;
+	border-top: 2px solid #ddd;
 }
 
-/* tr:nth-child(even){background-color: #B9E5E1} */
 </style>

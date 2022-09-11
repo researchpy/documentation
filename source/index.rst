@@ -1,7 +1,3 @@
-.. researchpy documentation master file, created by
-   sphinx-quickstart on Mon Jul 23 11:23:25 2018.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
 Welcome to researchpy's documentation!
 ======================================
@@ -41,18 +37,17 @@ streamlined during this process. For an example, see the new -difference_test- m
    :caption: Contents:
 
    codebook_documentation
+   summarize_documentation
    summary_cont_documentation
    summary_cat_documentation
    difference_test_documentation
    ttest_documentation
+   signrank_documentation
    crosstab_documentation
    corr_case_documentation
    corr_pair_documentation
+   anova_documentation
+   ols_documentation
+   predict_documentation
    install
-
-.. Indices and tables
-.. ==================
-
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
+   thanks

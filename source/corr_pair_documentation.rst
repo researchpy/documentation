@@ -1,4 +1,8 @@
+***********
 corr_pair()
+***********
+
+Description
 ===========
 Conducts Pearson (default method), Spearman rank, or Kendall's Tau-b correlation analysis using
 pair wise deletion. Returns the relevant information and results in 1 DataFrame
@@ -8,15 +12,17 @@ DataFrame 1 contains the variables being compared in the index, followed by the
 corresponding r value, p-value, and N for the groups being compared.
 
 
+Parameters
+==========
 
-Arguments
----------
+Input
+-----
 **corr_pair(dataframe, method= "pearson")**
 
 * **dataframe** can either be a single Pandas Series or multiple Series/an
   entire DataFrame.
-* **method** takes the values of "pearson" :cite:`scipy_pearsonr` (the default if nothing is passed),
-  "spearman" :cite:`scipy_spearmanr`, or "kendall" :cite:`scipy_kendalltau`.
+* **method** takes the values of "pearson" :footcite:p:`scipy_pearsonr` (the default if nothing is passed),
+  "spearman" :footcite:p:`scipy_spearmanr`, or "kendall" :footcite:p:`scipy_kendalltau`.
 
 ..  scipy.stats methods used in corr_case()
 .. ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -30,7 +36,10 @@ Arguments
 
 
 Examples
---------
+========
+
+Loading Packages and Data
+-------------------------
 .. code:: python
 
     import researchpy, numpy, pandas
@@ -42,6 +51,8 @@ Examples
                       columns= ['mental_score', 'physical_score', 'emotional_score',
                                'happiness_index'])
 
+Pearson r
+---------
 .. code:: python
 
     # Can pass the entire DataFrame or multiple Series
@@ -50,8 +61,8 @@ Examples
 
 .. raw:: html
 
-    <div>
-    <table border="1" class="dataframe">
+    <div style="overflow-x: auto;">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -112,8 +123,8 @@ Examples
 
 .. raw:: html
 
-    <div>
-    <table border="1" class="dataframe">
+    <div style="overflow-x: auto;">
+    <table class="dataframe">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -166,7 +177,6 @@ Examples
 
 
 References
-----------
-.. bibliography:: refs.bib
-   :cited:
-   :list: bullet
+==========
+
+.. footbibliography::

@@ -1,43 +1,52 @@
+*****************
 difference_test()
-=================
+*****************
+
+Description
+===========
 Conducts a few different statistical tests which test for a difference between
 independent or related samples with or without equal variances and has the ability
 to calculate the effect size of the observed difference. The data is
 returned in a Pandas DataFrame by default, but can be returned as a dictionary
 if specified.
 
-This method is similar to researchpy.ttest(), except it allows the user to use
-the formula syntax.
+This method is similar to researchpy.ttest(), except it allows the user to use the formula syntax.
 
 This method can perform the following tests:
-  * Independent sample t-test :cite:`scipy_ttest_ind`
+
+  * Independent sample t-test :footcite:p:`scipy_ttest_ind`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = True)`
 
-  * Paired sample t-test :cite:`scipy_ttest_rel`
+  * Paired sample t-test :footcite:p:`scipy_ttest_rel`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = True, independent_samples = False)`
 
-  * Welch's t-test :cite:`scipy_ttest_ind`
+  * Welch's t-test :footcite:p:`scipy_ttest_ind`
 
       * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = True)`
 
-  * Wilcoxon ranked-sign test :cite:`scipy_wilcoxon`
+  * Wilcoxon signed-rank test :footcite:p:`scipy_wilcoxon`
 
       * By default, discards all zero-differences; this is known as the 'wilcox' method.
       * `psudo-code: difference_test(formula_like, data, equal_variances = False, independent_samples = False)`
 
-2 objects will be returned for all available tests; the first object will be a
+2 objects will be returned for all available tests except for the Wilcoxon signed-rank test; the first object will be a
 descriptive summary table and the second will be the testing result information which
 will include the effect size measures if indicated.
 
+For the Wilcoxon signed-rank test, 3 objects will be returned. The first object
+provides descriptive information regarding the ranks, the second object contains the adjustment information,
+and the third object contains the test results.
 
 
 
+Parameters
+==========
 
-Arguments
------------------
-**difference_test(formula_like, data = {}, conf_level = 0.95, equal_variances = True, independent_samples = True, wilcox_parameters = {"zero_method" : "wilcox", "correction" : False, "mode" : "auto"}, **keywords)**
+Input
+-----
+**difference_test(formula_like, data = {}, conf_level = 0.95, equal_variances = True, independent_samples = True, wilcox_parameters = {"zero_method" : "wilcox", "correction" : False, "mode" : "auto"}, welch_dof = "satterthwaite", **keywords)**
 
   * **formula_like**: A valid `formula <https://patsy.readthedocs.io/en/latest/formulas.html>`_ ; for example, "DV ~ IV".
   * **data**: data to perform the analysis on - contains the dependent and independent variables.
@@ -45,15 +54,26 @@ Arguments
   * **equal_variances**: Boolean to indicate if equal variances are assumed.
   * **independent_samples**: Boolean to indicate if groups and independent of each other.
   * **wilcox_parameters**: A dictionary with optional methods for calculating the Wilcoxon signed-rank test. For more information, see `scipy.stats.wilcoxon <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html#scipy.stats.wilcoxon>`_.
+  * **welch_dof** : A string which indicates how to calculate the degrees of freedom for the Welch's t-test; options are "satterthwaite" (default) and "welch".
 
-**conduct(return_type = "Dataframe", effect_size = None)**
 
-  * **return_type**: Specify if the results should be returned as a Pandas DataFrame (default) or a Python dictionary (= 'Dictionary').
-  * **effect_size**: Specify if effect sizes should be calculated, default value is None.
-    * Available options are: None, "Cohen's D", "Hedge's G", "Glass's delta1", "Glass's delta2", "r", and/or "all".
+Returns
+-------
+Returns an object with class "difference_test"; this object has accessible methods which are described below.
+
+difference_test methods
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* **conduct(return_type = "Dataframe", effect_size = None, decimals = 4)**
+
+    * **return_type**: Specify if the results should be returned as a Pandas DataFrame (default) or a Python dictionary (= 'Dictionary').
+    * **effect_size**: Specify if effect sizes should be calculated, default value is None.
+      * Available options are: None, "Cohen's D", "Hedge's G", "Glass's delta1", "Glass's delta2", "r", and/or "all".
       * User can specify any combination of effect sizes, or use "all" which will calculate all effect sizes.
       * Only effect size "r" is supported for the Wilcoxon ranked-sign test.
+    * **decimals** : The number of decimal places the data should be rounded too.
 
+    :note: If
 
 
 
@@ -71,27 +91,46 @@ Arguments
 .. note::
     This can be a one step, or two step process.
 
-    **One step**
-    .. code:: python
+**One step**
+.. code:: python
 
-        difference_test("DV ~ IV", data).conduct()
+    difference_test("DV ~ IV", data).conduct()
 
-    **Two step**
-    .. code:: python
+**Two step**
+.. code:: python
 
-        model = difference_test("DV ~ IV", data)
-        model.conduct()
-
-
+    model = difference_test("DV ~ IV", data)
+    model.conduct()
 
 
 
-Effect size measures formulas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Welch Degrees of freedom
+^^^^^^^^^^^^^^^^^^^^^^^^
+There are two degrees of freedom options available when calculating the Welch's t-test. The default is to use
+the Satterthwaite :footcite:p:`Satterthwaite1946` calculation with the option to use the Welch :footcite:p:`Welch1947` calculation.
+
+Satterthwaite (1946)
+""""""""""""""""""""
+
+.. math::
+
+  \frac{(\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y})^2}{\frac{(\frac{s^2_x}{n_x})^2}{n_x-1} + \frac{(\frac{s^2_y}{n_y})^2}{n_y-1} }
+
+
+Welch (1947)
+""""""""""""
+
+.. math::
+
+  -2 + \frac{(\frac{s^2_x}{n_x} + \frac{s^2_y}{n_y})^2}{\frac{(\frac{s^2_x}{n_x})^2}{n_x+1} + \frac{(\frac{s^2_y}{n_y})^2}{n_y+1}}
+
+
+Effect Size Measures Formulas
+=============================
 
 Cohen's d\ :sub:`s` (between subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""
-Cohen's d\ :sub:`s` :cite:`cohen1988` for a between groups design is calculated
+-----------------------------------------------
+Cohen's d\ :sub:`s` :footcite:p:`cohen1988` for a between groups design is calculated
 with the following equation:
 
 .. math::
@@ -103,9 +142,9 @@ with the following equation:
 
 
 Cohen's d\ :sub:`av` (within subject design)
-"""""""""""""""""""""""""""""""""""""""""""
+----------------------------------------------
 Another version of Cohen's d is used in within subject designs. This is noted
-by the subscript "av". The formula for Cohen's d\ :sub:`av` :cite:`lakens2013` is
+by the subscript "av". The formula for Cohen's d\ :sub:`av` :footcite:p:`lakens2013` is
 as follows:
 
 .. math::
@@ -117,11 +156,11 @@ as follows:
 
 
 Hedges's g\ :sub:`s` (between subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""""
+------------------------------------------------
 Cohen's d\ :sub:`s` gives a biased estimate of the effect size for a population
-and Hedges and Olkin :cite:`hedges1985` provides an unbiased estimation. The
+and Hedges and Olkin :footcite:p:`hedges1985` provides an unbiased estimation. The
 differences between Hedges's g and Cohen's d is negligible when sample sizes
-are above 20, but it is still preferable to report Hedges's g :cite:`kline2004`.
+are above 20, but it is still preferable to report Hedges's g :footcite:p:`kline2004`.
 Hedge's g\ :sub:`s` is calculated using the following formula:
 
 .. math::
@@ -133,10 +172,10 @@ Hedge's g\ :sub:`s` is calculated using the following formula:
 
 
 Hedges's g\ :sub:`av` (within subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""""
+--------------------------------------------------
 Cohen's d\ :sub:`av` gives a biased estimate of the effect size for a population
-and Hedges and Olkin :cite:`hedges1985` provides a correction to be applied to provide an unbiased estimate.
-Hedge's g\ :sub:`av` is calculated using the following formula :cite:`lakens2013` :
+and Hedges and Olkin :footcite:p:`hedges1985` provides a correction to be applied to provide an unbiased estimate.
+Hedge's g\ :sub:`av` is calculated using the following formula :footcite:p:`lakens2013` :
 
 .. math::
 
@@ -145,11 +184,11 @@ Hedge's g\ :sub:`av` is calculated using the following formula :cite:`lakens2013
 
 
 Glass's :math:`\Delta` (between or within subjects design)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+------------------------------------------------------------
 Glass's :math:`\Delta` is the mean differences between the two groups divided by
 the standard deviation of the first condition/group or by the second condition/group.
 When used in a within subjects design, it is recommended to use the pre- standard
-deviation in the denominator :cite:`lakens2013`; the following formulas are used
+deviation in the denominator :footcite:p:`lakens2013`; the following formulas are used
 to calculate Glass's :math:`\Delta`:
 
 .. math::
@@ -159,30 +198,43 @@ to calculate Glass's :math:`\Delta`:
   \Delta_2 = \frac{(\bar{x}_1 - \bar{x}_2)}{SD_2}
 
 
-
-Point-Biserial correlation coefficient r (between or within subjects design)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Tthe following formula to calculate
-the Point-Biserial correlation coefficient r using the t-value and degrees of freedom:
+Pearson correlation coefficient r (between or within subjects design)
+------------------------------------------------------------------------
+Rosenthal :footcite:p:`rosenthal1991` provided the following formula to calculate
+the Pearson correlation coefficient r using the t-value and degrees of freedom:
 
 .. math::
 
   r = \frac{t}{\sqrt{t^2 + df}}
 
-The following formula is used to calculate the Point-Biserial
-correlation coefficient r using the W-value and N. This formula
-is used to calculate the r coefficient for the Wilcoxon ranked-sign test.
+Rosenthal :footcite:p:`rosenthal1991` provided the following formula to calculate
+the Pearson correlation coefficient r using the z-value and N. This formula
+is used to calculate the r coefficient for the Wilcoxon ranked-sign test. Note,
+that N is the total number of observations.
 
-  .. math::
+.. math::
 
-    r = \sqrt{\frac{W}{\sum{\text{rank}}}}
+  r = \frac{Z}{\sqrt{N}}
+
+
+Rank-Biserial correlation coefficient r (between or within subjects design)
+--------------------------------------------------------------------------------
+The following formula is used to calculate the Rank-Biserial
+correlation coefficient r :footcite:p:`Kerby2012` for the Wilcoxon ranked-sign test.
+
+.. math::
+
+  \text{Rank-Biserial r = } \frac{\sum{Ranks}_{+} - \sum{Ranks}_{-}}{\sum{Ranks}_{total}}
 
 
 
 
 
 Examples
---------
+========
+
+Loading Packages and Data
+-------------------------
 First let's create an example data set to work through the examples. This will be done using
 numpy (to create fake data) and pandas (to hold the data in a data frame).
 
@@ -237,16 +289,19 @@ will be shown below.
 Now the data is in the correct structure.
 
 
+Independent Samples t-test
+--------------------------
+
 .. code:: python
 
     # Independent t-test
 
     # If you don't store the 2 returned DataFrames, it outputs as a tuple and
     # is displayed
-    difference_test("StressReactivity ~ C(Exercise)",
-                    data = df2,
-                    equal_variances = True,
-                    independent_samples = True).conduct(effect_size = "all")
+    rp.difference_test("StressReactivity ~ C(Exercise)",
+                       data = df2,
+                       equal_variances = True,
+                       independent_samples = True).conduct(effect_size = "all")
 
 .. parsed-literal::
 
@@ -271,10 +326,10 @@ Now the data is in the correct structure.
 .. code:: python
 
     # Otherwise you can store them as objects
-    summary, results = difference_test("StressReactivity ~ C(Exercise)",
-                                       data = df2,
-                                       equal_variances = True,
-                                       independent_samples = True).conduct(effect_size = "all")
+    summary, results = rp.difference_test("StressReactivity ~ C(Exercise)",
+                                          data = df2,
+                                          equal_variances = True,
+                                          independent_samples = True).conduct(effect_size = "all")
 
     summary
 
@@ -309,13 +364,16 @@ Now the data is in the correct structure.
 
 
 
+Paired Samples t-test
+---------------------
+
 .. code:: python
 
     # Paired samples t-test
-    summary, results = difference_test("StressReactivity ~ C(Exercise)",
-                                       data = df2,
-                                       equal_variances = True,
-                                       independent_samples = False).conduct(effect_size = "all")
+    summary, results = rp.difference_test("StressReactivity ~ C(Exercise)",
+                                          data = df2,
+                                          equal_variances = True,
+                                          independent_samples = False).conduct(effect_size = "all")
 
     summary
 
@@ -348,11 +406,15 @@ Now the data is in the correct structure.
     10          Point-Biserial r   0.105763
 
 
+Welch's t-test
+--------------
+One can request either the Satterthwaite (default) or Welch degrees of freedom; to
+calculate degrees of freedom using Welch's formula set  welch_dof = "welch"
 
 .. code:: python
 
     # Welch's t-test
-    summary, results = difference_test("StressReactivity ~ C(Exercise)",
+    summary, results = rp.difference_test("StressReactivity ~ C(Exercise)",
                                        data = df2,
                                        equal_variances = False,
                                        independent_samples = True).conduct(effect_size = "all")
@@ -390,48 +452,32 @@ Now the data is in the correct structure.
 
 
 
+Wilcoxon signed-rank Test
+--------------------------
 .. code:: python
 
     # Wilcoxon signed-rank test
-    summary, results = difference_test("StressReactivity ~ C(Exercise)",
-                                       data = df2,
-                                       equal_variances = False,
-                                       independent_samples = False).conduct(effect_size = "r")
+    desc, var_adj, res = difference_test("StressReactivity ~ C(Exercise)", df2, independent_samples=False, equal_variances = False).conduct()
 
-    summary
+    print(desc, var_adj, res, sep = "\n"*2)
 
-.. parsed-literal::
+.. raw:: html
 
-      Name    N  Mean Variance       SD        SE  95% Conf.  Interval
-    0   No  100  4.59  7.55747  2.74909  0.274909   4.044522  5.135478
-    1  Yes  100  4.16  9.81253   3.1325  0.313250   3.538445  4.781555
+    <div style="overflow-x: auto;">
+    <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>sign</th>      <th>obs</th>      <th>sum ranks</th>      <th>expected</th>    </tr>  </thead>  <tbody>    <tr>      <td>positive</td>      <td>40</td>      <td>2,298.0000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>negative</td>      <td>51</td>      <td>2,707.0000</td>      <td>2,502.5000</td>    </tr>    <tr>      <td>zero</td>      <td>9</td>      <td>45.0000</td>      <td>45.0000</td>    </tr>    <tr>      <td>all</td>      <td>100</td>      <td>5,050.0000</td>      <td>5,050.0000</td>    </tr>  </tbody></table>
+    </div>
 
-.. code:: python
+    <div style="overflow-x: auto;">
+    <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>unadjusted variance</th>      <th>adjustment for ties</th>      <th>adjustment for zeros</th>      <th>adjusted variance</th>    </tr>  </thead>  <tbody>    <tr>      <td>84,587.5000</td>      <td>-375.1250</td>      <td>-71.2500</td>      <td>84,141.1250</td>    </tr>  </tbody></table>
+    </div>
 
-    results
-
-.. parsed-literal::
-
-      Wilcoxon signed-rank test   Results
-    0                (No = Yes)
-    1                       W =    1849.5
-    2       Two sided p-value =  0.333755
-    3          Point-Biserial r  0.366238
-
-
-.. code:: python
-
-    # Exporting descriptive table (summary) and result table (results) to same
-    # csv file
-    summary.to_csv("C:\\Users\\...\\test.csv", index= False)
-    results.to_csv("C:\\Users\\...\\test.csv", index= False, mode= 'a')
-
-
+    <div style="overflow-x: auto;">
+    <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>z</th>      <th>w</th>      <th>pval</th>    </tr>  </thead>  <tbody>    <tr>      <td>-0.7050</td>      <td>2,298.0000</td>      <td>0.4808</td>    </tr>  </tbody></table>
+    </div>
 
 
 
 References
-----------
-.. bibliography:: refs.bib
-   :list: bullet
-   :cited:
+==========
+
+.. footbibliography::
