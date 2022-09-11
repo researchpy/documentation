@@ -52,10 +52,10 @@ ols methods
 
 Effect Size Measures Formulas
 =============================
-By default, this method will return the measures of :math:`R^2`, :math:`\text{Adj. }R^2`, :math:`\eta^2`, and :math:`\omega^2`.
-Additionally, :math:`R^2` and :math:`\eta^2` are the same but have different names due to coming from different frameworks
-which uses different terminology. Formulas for how to calculate these effect sizes
-comes from :footcite:p:`grissomkim2012`.
+By default, this method will return the measures of :math:`R^2`, :math:`\text{Adj. }R^2`, :math:`\eta^2`, :math:`\epsilon^2`, and :math:`\omega^2`. Please
+note that for the factor terms, the reported effect sizes are partial, i.e., :math:`\eta^2_p`, :math:`\epsilon^2_p`, and :math:`\omega^2_p` respectively.
+See Olejnik and Aligna (2000) :footcite:p:`Olejnik&Algina2000`, Kelley and Preacher (2012) :footcite:p:`Kelly&Preacher2012`, and/or Grissom and Kim (2012) :footcite:p:`Grissom&Kim2012`
+
 
 Eta-squared (:math:`\eta^2`) and :math:`R^2`
 ----------------------------------------------
@@ -93,12 +93,11 @@ called 'systolic'.
 .. code:: python
 
  import researchpy as rp
-  import pandas as pd
-  # Used to load example data #
-  import statsmodels.datasets
+ import pandas as pd
+ # Used to load example data #
+ import statsmodels.datasets
 
-
-  systolic = statsmodels.datasets.webuse('systolic')
+ systolic = statsmodels.datasets.webuse('systolic')
 
 
 Now let's get some quick information regarding the data set.
@@ -142,9 +141,6 @@ as an integer.
 
 
 
-
-
-
 .. code:: python
 
   rp.crosstab(systolic["disease"], systolic["drug"])
@@ -155,12 +151,9 @@ as an integer.
   <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>Variable</th>      <th>Outcome</th>      <th>Count</th>      <th>Percent</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>drug</td>      <td>4</td>      <td>16</td>      <td>27.59</td>    </tr>    <tr>      <th>1</th>      <td></td>      <td>2</td>      <td>15</td>      <td>25.86</td>    </tr>    <tr>      <th>2</th>      <td></td>      <td>1</td>      <td>15</td>      <td>25.86</td>    </tr>    <tr>      <th>3</th>      <td></td>      <td>3</td>      <td>12</td>      <td>20.69</td>    </tr>    <tr>      <th>4</th>      <td>disease</td>      <td>3</td>      <td>20</td>      <td>34.48</td>    </tr>    <tr>      <th>5</th>      <td></td>      <td>2</td>      <td>19</td>      <td>32.76</td>    </tr>    <tr>      <th>6</th>      <td></td>      <td>1</td>      <td>19</td>      <td>32.76</td>    </tr>  </tbody></table>
   </div>
 
-Now to conduct the ANOVA; by default Type 3 sum of squares are used. There are a few
-ways one can conduct an ANOVA using Researchpy, the suggested approach is to assign
-the ANOVA model to an object that way one can utilize the built-in methods. If
-one does not want to do that, then running the model with and displaying the results
-in one-line will work too; the output will be returned as a tuple. The suggested
-approach will be shown in this example.
+
+
+Now to fit the linear regression model, below is sample syntax.
 
 
 .. code:: python

@@ -30,8 +30,8 @@ Input
 
       * *"y"* or *"xb"* : Linear prediction
       * *"residuals"*, *"res"*, or *"r"* : Residuals
-      * *"standardized_residuals"*, *"standardized_r"*, or *"r_std"* : Standardized residuals
-      * *"studentized_residuals"*, *"student_r"*, or *"r_stud"* : Studentized (jackknifed) residuals
+      * *"standardized_residuals"*, *"standardized_r"*, or *"rstand"* : Standardized residuals
+      * *"studentized_residuals"*, *"student_r"*, or *"rstud"* : Studentized (jackknifed) residuals
       * *"leverage"*, *"lev"* : Leverage of the observation (diagonal of the H matrix)
 
 
@@ -119,12 +119,12 @@ called 'systolic'.
 .. code:: python
 
    import researchpy as rp
-    import pandas as pd
-    # Used to load example data #
-    import statsmodels.datasets
+   import pandas as pd
+   # Used to load example data #
+   import statsmodels.datasets
 
 
-    systolic = statsmodels.datasets.webuse('systolic')
+   systolic = statsmodels.datasets.webuse('systolic')
 
 
 Now let's get some quick information regarding the data set.
@@ -208,20 +208,25 @@ as an integer.
     <table class="dataframe">  <thead>    <tr style="text-align: right;">      <th>Source</th>      <th>Sum of Squares</th>      <th>Degrees of Freedom</th>      <th>Mean Squares</th>      <th>F value</th>      <th>p-value</th>      <th>Eta squared</th>      <th>Omega squared</th>    </tr>  </thead>  <tbody>    <tr>      <td>Model</td>      <td>4,259.3385</td>      <td>11</td>      <td>387.2126</td>      <td>3.5057</td>      <td>0.0013</td>      <td>0.4560</td>      <td>0.3221</td>    </tr>    <tr>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>drug</td>      <td>2,997.4719</td>      <td>3.0000</td>      <td>999.1573</td>      <td>9.0460</td>      <td>0.0001</td>      <td>0.3711</td>      <td>0.2939</td>    </tr>    <tr>      <td>disease</td>      <td>415.8730</td>      <td>2.0000</td>      <td>207.9365</td>      <td>1.8826</td>      <td>0.1637</td>      <td>0.0757</td>      <td>0.0295</td>    </tr>    <tr>      <td>drug:disease</td>      <td>707.2663</td>      <td>6.0000</td>      <td>117.8777</td>      <td>1.0672</td>      <td>0.3958</td>      <td>0.1222</td>      <td>0.0069</td>    </tr>    <tr>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>Residual</td>      <td>5,080.8167</td>      <td>46</td>      <td>110.4525</td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>    <tr>      <td>Total</td>      <td>9,340.1552</td>      <td>57</td>      <td>163.8624</td>      <td></td>      <td></td>      <td></td>      <td></td>    </tr>  </tbody></table>
     </div>
 
-  If it's of interest, one can also access the underlying regression table.
 
 
 .. code:: python
 
-    m.predict(estimate="r")
+    m.predict(estimate="r")[:10]
 
 
-.. raw:: html
+.. parsed-literal::
 
-    <div style="overflow-x: auto;">
-    <table class="dataframe">  <thead>    <tr style="text-align: right;">      </tr>  </thead>  <tbody>    <tr>      <td>12.667</td>    </tr>    <tr>      <td>14.667</td>    </tr>    <tr>      <td>6.667</td>    </tr>    <tr>      <td>-16.333</td>    </tr>    <tr>      <td>-10.333</td>    </tr>    <tr>      <td>-7.333</td>    </tr>    <tr>      <td>4.750</td>    </tr>    <tr>      <td>-2.250</td>    </tr>    <tr>      <td>4.750</td>    </tr>    <tr>      <td>-7.250</td>    </tr>    <tr>      <td>10.600</td>    </tr>    <tr>      <td>-23.400</td>    </tr>    <tr>      <td>4.600</td>    </tr>    <tr>      <td>4.600</td>    </tr>    <tr>      <td>3.600</td>    </tr>    <tr>      <td>0.000</td>    </tr>    <tr>      <td>-5.000</td>    </tr>    <tr>      <td>6.000</td>    </tr>    <tr>      <td>14.000</td>    </tr>    <tr>      <td>-15.000</td>    </tr>    <tr>      <td>0.500</td>    </tr>    <tr>      <td>-0.500</td>    </tr>    <tr>      <td>-2.500</td>    </tr>    <tr>      <td>2.500</td>    </tr>    <tr>      <td>-15.167</td>    </tr>    <tr>      <td>7.833</td>    </tr>    <tr>      <td>9.833</td>    </tr>    <tr>      <td>13.833</td>    </tr>    <tr>      <td>-14.167</td>    </tr>    <tr>      <td>-2.167</td>    </tr>    <tr>      <td>-15.333</td>    </tr>    <tr>      <td>12.667</td>    </tr>    <tr>      <td>2.667</td>    </tr>    <tr>      <td>6.600</td>    </tr>    <tr>      <td>4.600</td>    </tr>    <tr>      <td>2.600</td>    </tr>    <tr>      <td>-3.400</td>    </tr>    <tr>      <td>-10.400</td>    </tr>    <tr>      <td>12.500</td>    </tr>    <tr>      <td>-7.500</td>    </tr>    <tr>      <td>0.500</td>    </tr>    <tr>      <td>-5.500</td>    </tr>    <tr>      <td>10.400</td>    </tr>    <tr>      <td>-4.600</td>    </tr>    <tr>      <td>8.400</td>    </tr>    <tr>      <td>-15.600</td>    </tr>    <tr>      <td>1.400</td>    </tr>    <tr>      <td>14.167</td>    </tr>    <tr>      <td>-0.833</td>    </tr>    <tr>      <td>-0.833</td>    </tr>    <tr>      <td>-17.833</td>    </tr>    <tr>      <td>3.167</td>    </tr>    <tr>      <td>2.167</td>    </tr>    <tr>      <td>7.800</td>    </tr>    <tr>      <td>-7.200</td>    </tr>    <tr>      <td>10.800</td>    </tr>    <tr>      <td>-9.200</td>    </tr>    <tr>      <td>-2.200</td>    </tr>  </tbody>
-    </table>
-    </div>
+    <pre>array([[ 12.6667],
+       [ 14.6667],
+       [  6.6667],
+       [-16.3333],
+       [-10.3333],
+       [ -7.3333],
+       [  4.75  ],
+       [ -2.25  ],
+       [  4.75  ],
+       [ -7.25  ]])</pre>
 
 
 
