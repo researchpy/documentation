@@ -30,14 +30,14 @@ Examples
     df = pandas.DataFrame(numpy.random.randint(10, size= (100, 2)),
                       columns= ['healthy', 'non-healthy'])
     df['tx'] = ""
-    df['tx'].iloc[0:50] = "Placebo"
-    df['tx'].iloc[50:101] = "Experimental"
+    df.loc[0:50, 'tx'] = "Placebo"
+    df.loc[50:101, 'tx'] = "Experimental"
 
     df['dose'] = ""
-    df['dose'].iloc[0:26] = "10 mg"
-    df['dose'].iloc[26:51] = "25 mg"
-    df['dose'].iloc[51:76] = "10 mg"
-    df['dose'].iloc[76:101] = "25 mg"
+    df.loc[0:26, 'dose'] = "10 mg"
+    df.loc[26:51, 'dose'] = "25 mg"
+    df.loc[51:76, 'dose'] = "10 mg"
+    df.loc[76:101, 'dose'] = "25 mg"
 
 
 
