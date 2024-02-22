@@ -144,15 +144,15 @@ design, it is recommended to use the pre- standard deviation in the denominator
 
 
 
-Cohen's d\ :sub:`z` (within subject design)
--------------------------------------------
+Cohen's d\ :sub:`av` (within subject design)
+----------------------------------------------
 Another version of Cohen's d is used in within subject designs. This is noted
-by the subscript "z". The formula for Cohen's d\ :sub:`z` :footcite:p:`cohen1988` is
+by the subscript "av". The formula for Cohen's d\ :sub:`av` :footcite:p:`lakens2013` is
 as follows:
 
 .. math::
 
-  d_z = \frac{M_{diff}}{\sqrt{\frac{\sum (X_{diff} - M_{diff})^2}{N - 1}}}
+  d_{av} = \frac{M_{diff}}{\frac{SD_{1} + SD_{2}}{2}}
 
 
 
